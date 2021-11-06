@@ -1,4 +1,3 @@
-import React from 'react';
 import Hello from './Hello';
 import { action } from '@storybook/addon-actions';
 
