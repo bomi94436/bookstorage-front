@@ -32,10 +32,25 @@ module.exports = {
       options: {
         presets: [
           ['react-app', { flow: false, typescript: true }],
+
           require.resolve('@emotion/babel-preset-css-prop'),
+        ],
+        plugins: [
+          [
+            require.resolve('babel-plugin-named-asset-import'),
+            {
+              loaderMap: {
+                svg: {
+                  ReactComponent: '@svgr/webpack?-svgo,+titleProp,+ref![path]',
+                },
+              },
+            },
+          ],
         ],
       },
     });
+
+    config.resolve.extensions.push('.ts', '.tsx');
 
     return {
       ...config,
@@ -46,6 +61,8 @@ module.exports = {
           '@emotion/core': getPackageDir('../node_modules/@emotion/react'),
           '@emotion/styled': getPackageDir('../node_modules/@emotion/styled'),
           'emotion-theming': getPackageDir('../node_modules/@emotion/react'),
+          '@stories': path.resolve(__dirname, '../src/stories'),
+          '@styles': path.resolve(__dirname, '../src/styles'),
         },
       },
     };

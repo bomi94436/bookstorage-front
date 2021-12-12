@@ -1,3 +1,5 @@
+import { Theme } from '@emotion/react';
+
 export const size = {
   largest: '75em', // 1200px
   large: '56.25em', // 900px
@@ -6,8 +8,27 @@ export const size = {
   smallest: '25em', // 400px
 };
 
-const theme = {
-  mainColor: '#255941',
+const color: Theme['color'] = {
+  main: '#3d6e59',
+  mainHover: '#a1b2aa',
+  black: '#343a40',
+  lightBlack: '#5f666e',
+  gray: '#777e85',
+  semiLightGray: '#cad0d9',
+  lightGray: '#e9edf2',
+  semiWhite: '#f7f8fd',
+  white: '#ffffff',
+};
+
+export const theme: Theme = {
+  color,
+  border: {
+    color: color.semiLightGray,
+    radius: '10px',
+  },
+  defaultSize: {
+    button: '80px',
+  },
   mq: {
     // media query
     laptop: `@media only screen and (min-width: ${size.largest})`,
@@ -15,5 +36,3 @@ const theme = {
     mobile: `@media only screen and (min-width: ${size.small})`,
   },
 };
-
-export default theme;

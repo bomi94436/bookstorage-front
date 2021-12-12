@@ -1,4 +1,5 @@
 import { Global, css } from '@emotion/react';
+import { theme } from '@styles/theme';
 
 const style = css`
   * {
@@ -7,7 +8,12 @@ const style = css`
   }
 
   body {
+    background-color: ${theme.color.semiWhite};
     box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
   }
 `;
 
