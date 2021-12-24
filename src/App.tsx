@@ -1,4 +1,5 @@
 import Layout from '@components/Layout';
+import OAuth2RedirectHandler from '@components/OAuth2RedirectHandler';
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -18,6 +19,7 @@ function App() {
               </main>
             }
           />
+          <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
         </Routes>
       </Layout>
     </BrowserRouter>
