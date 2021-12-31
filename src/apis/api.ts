@@ -1,12 +1,11 @@
 import { BACKEND_URL } from '@config/.';
 import axios, { AxiosInstance } from 'axios';
-import cookies from 'js-cookie';
+import { setConfig } from './interceptor';
 
 const API: AxiosInstance = axios.create({
   baseURL: `${BACKEND_URL}`,
-  headers: {
-    access_token: cookies.get('access_token') ?? '',
-  },
 });
+
+API.interceptors.request.use(setConfig);
 
 export default API;

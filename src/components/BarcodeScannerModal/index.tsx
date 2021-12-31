@@ -1,39 +1,30 @@
-import API from '@lib/api';
 import { useCallback, useState } from 'react';
 import { useQuery } from 'react-query';
 import BarcodeScanner from './BarcodeScanner';
 import { style } from './BarcodeScanner.styles';
-import { Card, Modal } from '@stories/.';
-import Divider from '@stories/Divider/Divider';
+import { Card, Divider, Modal } from '@stories/.';
+import { IBook } from 'types';
+import { getBook } from '@apis/book';
 
 interface BarcodeScannerModalProps {
   close: () => void;
-}
-
-interface IBook {
-  author: string;
-  description: string;
-  discount: string;
-  image: string;
-  isbn: string;
-  link: string;
-  price: string;
-  pubdate: string;
-  publisher: string;
-  title: string;
 }
 
 const BarcodeScannerModal = ({ close }: BarcodeScannerModalProps) => {
   const [isbn, setISBN] = useState<string>('9788966262601');
   const [selectedISBN, setSelectedISBN] = useState<string>('');
 
-  const { isLoading, error, data } = useQuery<IBook, Error>(['book', isbn], async () => {
-    if (isbn.length) {
-      const { data } = await API.get(`/books/isbn/${isbn}`);
-      setSelectedISBN('');
-      return data;
+  const { isLoading, error, data } = useQuery<IBook | undefined, Error>(
+    ['book', isbn],
+    () => {
+      if (isbn.length) return getBook({ isbn });
+    },
+    {
+      onSuccess: () => {
+        setSelectedISBN('');
+      },
     }
-  });
+  );
 
   const onClickBook = useCallback(() => {
     if (data) selectedISBN ? setSelectedISBN('') : setSelectedISBN(data.isbn);

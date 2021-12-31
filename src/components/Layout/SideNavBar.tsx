@@ -17,17 +17,16 @@ const SideNavbar = ({ open, setOpen }: SideNavbarProps) => {
   return (
     <Sidebar open={open} setOpen={setOpen}>
       <ButtonGroup direction="column" gap="16px">
-        <SidebarButton>
-          <Link to="/">홈</Link>
-        </SidebarButton>
+        <Link to="/">
+          <SidebarButton>홈</SidebarButton>
+        </Link>
+
         <SidebarButton onClick={() => setOepnBarcodeScannerModal(true)}>독후감</SidebarButton>
-        <SidebarButton>
-          <a
-            href={`${BACKEND_URL}/oauth2/authorization/naver?redirect_uri=${window.location.origin}/oauth2/redirect`}
-          >
-            로그인
-          </a>
-        </SidebarButton>
+        <a
+          href={`${BACKEND_URL}/oauth2/authorization/naver?redirect_uri=${window.location.origin}/oauth2/redirect`}
+        >
+          <SidebarButton>로그인</SidebarButton>
+        </a>
       </ButtonGroup>
 
       {oepnBarcodeScannerModal && (
