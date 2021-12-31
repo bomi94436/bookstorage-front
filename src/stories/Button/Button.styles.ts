@@ -80,7 +80,7 @@ export const sizes = {
     font-size: 14px;
     padding: 0 1rem;
   `,
-  big: css`
+  large: css`
     height: 3rem;
     font-size: 18px;
     padding: 0 1.5rem;
@@ -102,7 +102,7 @@ export const iconOnlySizes = {
   medium: css`
     width: 2.5rem;
   `,
-  big: css`
+  large: css`
     width: 3rem;
   `,
 };

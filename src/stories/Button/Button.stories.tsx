@@ -16,7 +16,7 @@ export default {
     },
     size: {
       defaultValue: 'medium',
-      options: ['small', 'medium', 'big'],
+      options: ['small', 'medium', 'large'],
       control: { type: 'select' },
     },
     theme: {
@@ -93,8 +93,8 @@ export const sizes = () => {
         <Button size="medium">BUTTON</Button>
       </div>
       <div>
-        <div className="description">Big</div>
-        <Button size="big">BUTTON</Button>
+        <div className="description">Large</div>
+        <Button size="large">BUTTON</Button>
       </div>
     </div>
   );
@@ -157,7 +157,7 @@ export const withIcon = () => (
       <Button theme="secondary">
         <Icon icon="heart" /> LIKE
       </Button>
-      <Button theme="tertiary" size="big">
+      <Button theme="tertiary" size="large">
         <Icon icon="heart" /> LIKE
       </Button>
     </ButtonGroup>
@@ -173,7 +173,7 @@ export const iconOnly = () => (
       <Button iconOnly>
         <Icon icon="heart" />
       </Button>
-      <Button iconOnly size="big">
+      <Button iconOnly size="large">
         <Icon icon="heart" />
       </Button>
     </ButtonGroup>

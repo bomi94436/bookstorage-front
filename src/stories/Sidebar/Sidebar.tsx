@@ -23,7 +23,7 @@ const Sidebar = ({ open, setOpen, children }: SidebarProps) => {
           <h3 className="logo-title">Book Storage</h3>
         </Link>
 
-        <Button theme="tertiary" size="big" className="close-sidebar" iconOnly>
+        <Button theme="tertiary" size="large" className="close-sidebar" iconOnly>
           <BsGridFill />
         </Button>
       </div>

@@ -6,7 +6,8 @@
       "@styles/*": ["./styles/*"],
       "@stories/*": ["./stories/*"],
       "@apis/*": ["./apis/*"],
-      "@config/*": ["./config/*"]
+      "@config/*": ["./config/*"],
+      "@types/*": ["./types/*"]
     }
   }
 }

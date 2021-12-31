@@ -6,7 +6,7 @@ export type ButtonProps = {
   /** 버튼의 생김새를 설정합니다. */
   theme: 'primary' | 'secondary' | 'tertiary';
   /** 버튼의 크기를 설정합니다. */
-  size: 'small' | 'medium' | 'big';
+  size: 'small' | 'medium' | 'large';
   /** 버튼을 비활성화 시킵니다. */
   disabled?: boolean;
   /** 버튼의 너비를 임의로 설정합니다. */
