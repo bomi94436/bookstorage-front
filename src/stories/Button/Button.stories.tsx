@@ -52,14 +52,14 @@ const buttonWrapper = css`
   }
 `;
 
-export const primaryButton = () => <Button>PRIMARY</Button>;
+export const primaryButton = () => <Button label="PRIMARY" />;
 
 export const secondaryButton = () => {
-  return <Button theme="secondary">SECONDARY</Button>;
+  return <Button theme="secondary" label="SECONDARY" />;
 };
 
 export const tertiaryButton = () => {
-  return <Button theme="tertiary">TERTIARY</Button>;
+  return <Button theme="tertiary" label="TERTIARY" />;
 };
 
 const customStyle = css`
@@ -78,7 +78,7 @@ const customStyle = css`
 `;
 
 export const customButton = () => {
-  return <Button customStyle={[customStyle]}>CUSTOM</Button>;
+  return <Button customStyle={[customStyle]} label="CUSTOM" />;
 };
 
 export const sizes = () => {
@@ -86,15 +86,15 @@ export const sizes = () => {
     <div css={buttonWrapper}>
       <div>
         <div className="description">Small</div>
-        <Button size="small">BUTTON</Button>
+        <Button size="small" label="BUTTON" />
       </div>
       <div>
         <div className="description">Medium</div>
-        <Button size="medium">BUTTON</Button>
+        <Button size="medium" label="BUTTON" />
       </div>
       <div>
         <div className="description">Large</div>
-        <Button size="large">BUTTON</Button>
+        <Button size="large" label="BUTTON" />
       </div>
     </div>
   );
@@ -104,31 +104,27 @@ export const disabled = () => {
   return (
     <div css={buttonWrapper}>
       <div>
-        <Button disabled>PRIMARY</Button>
+        <Button disabled label="PRIMARY" />
       </div>
       <div>
-        <Button disabled theme="secondary">
-          SECONDARY
+        <Button disabled theme="secondary" label="SECONDARY" />
+      </div>
+      <div>
+        <Button disabled theme="tertiary" label="TERTIARY" />
+      </div>
+      <div>
+        <Button disabled label="LIKE">
+          <Icon icon="heart" />
         </Button>
       </div>
       <div>
-        <Button disabled theme="tertiary">
-          TERTIARY
+        <Button disabled theme="secondary" label="LIKE">
+          <Icon icon="heart" />
         </Button>
       </div>
       <div>
-        <Button disabled>
-          <Icon icon="heart" /> LIKE
-        </Button>
-      </div>
-      <div>
-        <Button disabled theme="secondary">
-          <Icon icon="heart" /> LIKE
-        </Button>
-      </div>
-      <div>
-        <Button disabled theme="tertiary">
-          <Icon icon="heart" /> LIKE
+        <Button disabled theme="tertiary" label="LIKE">
+          <Icon icon="heart" />
         </Button>
       </div>
     </div>
@@ -139,10 +135,10 @@ export const customSized = () => {
   return (
     <div css={buttonWrapper}>
       <div>
-        <Button width="20rem">CUSTOM WIDTH</Button>
+        <Button width="20rem" label="CUSTOM WIDTH" />
       </div>
       <div>
-        <Button width="100%">FULL WIDTH</Button>
+        <Button width="100%" label="FULL WIDTH" />
       </div>
     </div>
   );
@@ -151,14 +147,14 @@ export const customSized = () => {
 export const withIcon = () => (
   <div>
     <ButtonGroup gap="1rem">
-      <Button size="small">
-        <Icon icon="heart" /> LIKE
+      <Button size="small" label="LIKE">
+        <Icon icon="heart" />
       </Button>
-      <Button theme="secondary">
-        <Icon icon="heart" /> LIKE
+      <Button theme="secondary" label="LIKE">
+        <Icon icon="heart" />
       </Button>
-      <Button theme="tertiary" size="large">
-        <Icon icon="heart" /> LIKE
+      <Button theme="tertiary" size="large" label="LIKE">
+        <Icon icon="heart" />
       </Button>
     </ButtonGroup>
   </div>

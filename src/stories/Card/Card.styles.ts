@@ -25,15 +25,6 @@ export const style = css`
   }
 `;
 
-export const image = (url: string) => css`
-  width: 280px;
-  height: 250px;
-  background-image: url(${url});
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-`;
-
 export const content = css`
   display: flex;
   flex-direction: column;

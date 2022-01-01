@@ -7,3 +7,4 @@ export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as Divider } from './Divider/Divider';
 export { default as Title } from './Typograpy/Title/Title';
 export { default as Text } from './Typograpy/Text/Text';
+export { default as Image } from './Image/Image';

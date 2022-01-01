@@ -7,6 +7,8 @@ export type ButtonProps = {
   theme: keyof typeof themes;
   /** 버튼의 크기를 설정합니다. */
   size: keyof typeof sizes;
+  /** 버튼의 라벨을 설정합니다. */
+  label?: string;
   /** 버튼을 비활성화 시킵니다. */
   disabled?: boolean;
   /** 버튼의 너비를 임의로 설정합니다. */
@@ -18,7 +20,7 @@ export type ButtonProps = {
   /** 커스텀 버튼 스타일 */
   customStyle?: SerializedStyles[];
   /** 버튼 안의 내용 */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /** 클릭했을 때 호출할 함수 */
   onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 };
@@ -27,6 +29,7 @@ export type ButtonProps = {
 const Button = ({
   theme,
   size,
+  label,
   disabled,
   width,
   iconOnly,
@@ -50,6 +53,7 @@ const Button = ({
       onClick={onClick}
     >
       {children}
+      {label && <span>{label}</span>}
     </button>
   );
 };

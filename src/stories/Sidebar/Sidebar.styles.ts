@@ -10,7 +10,7 @@ export const style = css`
   background-color: ${theme.color.white};
 
   ${theme.mq.laptop} {
-    width: 300px;
+    width: 280px;
   }
 
   height: 100%;
@@ -42,7 +42,12 @@ export const topBox = css`
 `;
 
 export const navBox = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   padding: 24px;
+  height: calc(100% - 146px);
 
   .active {
     & > * {

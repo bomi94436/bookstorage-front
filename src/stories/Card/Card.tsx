@@ -1,5 +1,6 @@
 import React from 'react';
-import { activeCard, content, image, style } from './Card.styles';
+import { activeCard, content, style } from './Card.styles';
+import { Image } from '@stories/.';
 
 export type CardProps = {
   imgSrc: string;
@@ -15,7 +16,7 @@ const Card = ({ imgSrc, children, active, onClick }: CardProps) => {
       className={`${active ? 'active' : ''}`}
       onClick={onClick}
     >
-      <div css={[image(imgSrc)]} />
+      <Image src={imgSrc} />
 
       <div css={[content]}>{children}</div>
     </button>

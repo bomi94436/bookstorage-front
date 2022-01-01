@@ -2,6 +2,10 @@ import { css } from '@emotion/react';
 import { theme } from '@styles/theme';
 
 export const style = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   outline: none;
   border: none;
   box-sizing: border-box;
@@ -12,8 +16,12 @@ export const style = css`
   line-height: 1;
   font-weight: 600;
   text-decoration: none;
+
   svg {
     width: 1em;
+  }
+  *:first-child:nth-last-child(2),
+  *:first-child:nth-last-child(2) ~ :not(span) {
     margin-right: 1em;
   }
   &:disabled {

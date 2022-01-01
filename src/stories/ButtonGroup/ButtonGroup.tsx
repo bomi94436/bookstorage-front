@@ -43,7 +43,7 @@ ButtonGroup.defaultProps = {
 const gapStyle = (direction: 'row' | 'column', gap: number | string) => {
   const marginType = direction === 'row' ? 'marginLeft' : 'marginTop';
   return css({
-    '* + *': {
+    '*:not(span) + *:not(span)': {
       [marginType]: gap,
     },
   });
