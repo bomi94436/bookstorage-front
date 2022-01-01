@@ -27,16 +27,11 @@ export const topBox = css`
 
   height: 50px;
   padding: 24px;
-  /* border-bottom: 1px solid ${theme.border.color}; */
+  border-bottom: 1px solid ${theme.border.color};
 
   .logo {
     width: 40px;
     height: 40px;
-  }
-
-  .logo-title {
-    margin-left: 16px;
-    color: ${theme.color.black};
   }
 
   .close-sidebar {
@@ -48,4 +43,10 @@ export const topBox = css`
 
 export const navBox = css`
   padding: 24px;
+
+  .active {
+    & > * {
+      color: ${theme.color.main};
+    }
+  }
 `;

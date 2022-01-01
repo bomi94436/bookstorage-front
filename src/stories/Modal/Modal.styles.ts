@@ -33,20 +33,6 @@ export const whiteBox = css`
   box-shadow: 0px 4px 8px 8px rgba(0, 0, 0, 0.05);
   padding: 32px;
 
-  .modal-title {
-    font-size: 24px;
-    color: ${theme.color.black};
-    margin-top: 0;
-    margin-bottom: 18px;
-  }
-
-  .modal-description {
-    font-size: 18px;
-    margin: 0;
-    color: ${theme.color.gray};
-    margin-bottom: 12px;
-  }
-
   .modal-contents {
     overflow-y: scroll;
   }

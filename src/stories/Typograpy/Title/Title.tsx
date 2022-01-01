@@ -3,12 +3,34 @@ import { levels, style } from './Title.styles';
 export type TitleProps = {
   /** 제목의 크기를 결정합니다.(h1 ~ h5) */
   level: '1' | '2' | '3' | '4' | '5';
+  /** margin custom 설정 */
+  margin?: {
+    top?: string;
+    right?: string;
+    bottom?: string;
+    left?: string;
+  };
   /** 제목 안의 내용 */
   children: React.ReactNode;
 };
 
-const Title = ({ level, children }: TitleProps) => {
-  const css = [style, levels[level]];
+const Title = ({ level, margin, children }: TitleProps) => {
+  const css = [
+    style,
+    levels[level],
+    margin?.top && {
+      marginTop: margin?.top,
+    },
+    margin?.right && {
+      marginRight: margin?.right,
+    },
+    margin?.bottom && {
+      marginBottom: margin?.bottom,
+    },
+    margin?.left && {
+      marginLeft: margin?.left,
+    },
+  ];
 
   switch (level) {
     case '1':

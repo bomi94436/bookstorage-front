@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import { theme } from '@styles/theme';
 
 export const style = css`
   .content {
@@ -10,10 +9,5 @@ export const style = css`
 
   .content .content-right {
     width: 30%;
-  }
-
-  .content .content-right .content-right-title {
-    margin-bottom: 16px;
-    color: ${theme.color.black};
   }
 `;

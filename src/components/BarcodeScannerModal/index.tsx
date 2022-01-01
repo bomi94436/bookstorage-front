@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import { useQuery } from 'react-query';
 import BarcodeScanner from './BarcodeScanner';
 import { style } from './BarcodeScanner.styles';
-import { Card, Divider, Modal } from '@stories/.';
+import { Card, Divider, Modal, Title } from '@stories/.';
 import { IBook } from 'types';
 import { getBook } from '@apis/book';
 
@@ -50,11 +50,11 @@ const BarcodeScannerModal = ({ close }: BarcodeScannerModalProps) => {
           <Divider direction="column" />
 
           <div className="content-right">
-            <h3 className="content-right-title">검색 결과</h3>
+            <Title level="3">검색 결과</Title>
 
             {data && (
               <Card imgSrc={data.image} onClick={onClickBook} active={data.isbn === selectedISBN}>
-                <h4 className="card-title">{data.title}</h4>
+                <Title level="3">{data.title}</Title>
               </Card>
             )}
           </div>

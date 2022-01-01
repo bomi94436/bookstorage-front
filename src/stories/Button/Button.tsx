@@ -4,9 +4,9 @@ import { iconOnlySizes, iconOnlyStyle, sizes, style, themes } from './Button.sty
 
 export type ButtonProps = {
   /** 버튼의 생김새를 설정합니다. */
-  theme: 'primary' | 'secondary' | 'tertiary';
+  theme: keyof typeof themes;
   /** 버튼의 크기를 설정합니다. */
-  size: 'small' | 'medium' | 'large';
+  size: keyof typeof sizes;
   /** 버튼을 비활성화 시킵니다. */
   disabled?: boolean;
   /** 버튼의 너비를 임의로 설정합니다. */

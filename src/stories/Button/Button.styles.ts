@@ -11,6 +11,7 @@ export const style = css`
   border-radius: ${theme.border.radius};
   line-height: 1;
   font-weight: 600;
+  text-decoration: none;
   svg {
     width: 1em;
     margin-right: 1em;
@@ -65,6 +66,20 @@ export const themes = {
     &:active:enabled {
       filter: brightness(95%);
       background-color: ${theme.color.lightGray};
+    }
+  `,
+  quaternary: css`
+    background: ${theme.color.white};
+    color: ${theme.color.gray};
+    svg {
+      fill: ${theme.color.black};
+    }
+    &:hover:enabled {
+      filter: brightness(100%);
+      background-color: ${theme.color.lightGray};
+    }
+    &:active:enabled {
+      filter: brightness(95%);
     }
   `,
 };

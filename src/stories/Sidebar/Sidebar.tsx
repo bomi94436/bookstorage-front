@@ -4,6 +4,7 @@ import { navBox, style, topBox } from './Sidebar.styles';
 import { Link } from 'react-router-dom';
 import Button from '@stories/Button/Button';
 import { BsGridFill } from 'react-icons/bs';
+import { Title } from '@stories/.';
 
 export type SidebarProps = {
   open: boolean;
@@ -20,7 +21,9 @@ const Sidebar = ({ open, setOpen, children }: SidebarProps) => {
         </Link>
 
         <Link to="/">
-          <h3 className="logo-title">Book Storage</h3>
+          <Title level="3" margin={{ left: '16px', bottom: '0' }}>
+            Book Storage
+          </Title>
         </Link>
 
         <Button theme="tertiary" size="large" className="close-sidebar" iconOnly>

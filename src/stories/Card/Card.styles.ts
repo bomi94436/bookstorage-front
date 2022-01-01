@@ -43,8 +43,4 @@ export const content = css`
   padding: 24px;
   border-top: 1px solid ${theme.border.color};
   background-color: ${theme.color.white};
-
-  .card-title {
-    font-size: 18px;
-  }
 `;

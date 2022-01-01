@@ -3,6 +3,7 @@ import ButtonGroup from '@stories/ButtonGroup/ButtonGroup';
 import React, { Fragment } from 'react';
 import { darkLayer, fullscreen, sizes, whiteBox, whiteBoxWrapper } from './Modal.styles';
 import { theme } from '@styles/theme';
+import { Title, Text } from '@stories/.';
 
 export type ModalProps = {
   visible: boolean;
@@ -41,8 +42,12 @@ const Modal = ({
       <div css={[fullscreen, whiteBoxWrapper]}>
         <div css={[whiteBox, sizes[size]]}>
           <div>
-            {title && <h3 className="modal-title">{title}</h3>}
-            {description && <p className="modal-description">{description}</p>}
+            {title && <Title level="2">{title}</Title>}
+            {description && (
+              <Text size="large" color="gray">
+                {description}
+              </Text>
+            )}
           </div>
 
           <div className="modal-contents">{children}</div>
