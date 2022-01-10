@@ -8,7 +8,7 @@
       "@apis/*": ["./apis/*"],
       "@config/*": ["./config/*"],
       "@types/*": ["./types/*"],
-      "@utils/*": ["./utils/*"]
+      "@hooks/*": ["./hooks/*"]
     }
   }
 }

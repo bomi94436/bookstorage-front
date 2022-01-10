@@ -13,11 +13,13 @@ import { useState } from 'react';
 import { useQuery, useQueryClient } from 'react-query';
 import { NavLink } from 'react-router-dom';
 import { IUserInfo } from 'types';
+import useWindowDimensions from '@hooks/useWindowDimensions';
 
 const SideNavbar = () => {
   const [openSidebar, setOpenSidebar] = useState<boolean>(true);
   const [openBarcodeScannerModal, setOpenBarcodeScannerModal] = useState<boolean>(false);
   const queryClient = useQueryClient();
+  const { width } = useWindowDimensions();
 
   const { data } = useQuery<IUserInfo, Error>(['user'], getUser, {
     retry: false,
@@ -27,8 +29,8 @@ const SideNavbar = () => {
   });
 
   return (
-    <Sidebar open={openSidebar} setOpen={setOpenSidebar}>
-      <ButtonGroup direction="column" gap="16px">
+    <Sidebar open={openSidebar} setOpen={setOpenSidebar} width={width}>
+      <ButtonGroup direction="column" rowAlign={!openSidebar ? 'center' : undefined} gap="16px">
         <NavLink to="/">
           <HomeButton open={openSidebar} />
         </NavLink>

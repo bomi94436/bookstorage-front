@@ -19,16 +19,17 @@ export type SidebarProps = {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
   children: React.ReactNode;
+  width: number;
 };
 
-const Sidebar = ({ open, setOpen, children }: SidebarProps) => {
+const Sidebar = ({ open, setOpen, children, width }: SidebarProps) => {
   const opened: 'opened' | 'closed' = open ? 'opened' : 'closed';
 
   useEffect(() => {
-    if (window.innerWidth < size.largest && open) {
+    if (width < size.largest && open) {
       setOpen(false);
     }
-  }, [open, setOpen]);
+  }, [open, setOpen, width]);
 
   return (
     <aside css={[style, sidebarSize[opened]]}>
@@ -52,7 +53,7 @@ const Sidebar = ({ open, setOpen, children }: SidebarProps) => {
             css={[toggleButton, toggleButtonPosition[opened]]}
             iconOnly
             onClick={() => {
-              if (window.innerWidth >= size.largest) {
+              if (width >= size.largest) {
                 setOpen((prev) => !prev);
               }
             }}
@@ -70,14 +71,14 @@ const Sidebar = ({ open, setOpen, children }: SidebarProps) => {
             </Link>
           </div>
 
-          {window.innerWidth >= size.largest && (
+          {width >= size.largest && (
             <Button
               theme="tertiary"
               size="large"
               css={[toggleButton, toggleButtonPosition[opened]]}
               iconOnly
               onClick={() => {
-                if (window.innerWidth >= size.largest) {
+                if (width >= size.largest) {
                   setOpen((prev) => !prev);
                 }
               }}

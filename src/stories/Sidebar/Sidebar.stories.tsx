@@ -12,13 +12,19 @@ export default {
       inlineStories: false,
     },
   },
+  argTypes: {
+    width: {
+      defaultValue: '1300',
+      control: { type: 'number' },
+    },
+  },
 };
 
-export const SidebarStory: Story<SidebarProps> = () => {
+export const SidebarStory: Story<SidebarProps> = ({ width }) => {
   const [open, setOpen] = useState<boolean>(true);
 
   return (
-    <Sidebar open={open} setOpen={setOpen}>
+    <Sidebar open={open} setOpen={setOpen} width={width}>
       <ButtonGroup direction="column" gap="16px">
         <HomeButton open={open} />
 

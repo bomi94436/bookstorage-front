@@ -1,6 +1,6 @@
 import Button from '@stories/Button/Button';
 import { Story } from '@storybook/react';
-import ButtonGroup, { ButtonGroupProps } from './ButtonGroup';
+import ButtonGroup, { AlignType, ButtonGroupProps } from './ButtonGroup';
 
 export default {
   title: 'components/ButtonGroup',
@@ -11,9 +11,15 @@ export default {
       options: ['row', 'column'],
       control: { type: 'radio' },
     },
-    rightAlign: {
-      defaultValue: false,
-      control: { type: 'boolean' },
+    rowAlign: {
+      defaultValue: 'flex-start',
+      options: ['flex-start', 'center', 'flex-end'] as AlignType[],
+      control: { type: 'radio' },
+    },
+    colAlign: {
+      defaultValue: 'flex-start',
+      options: ['flex-start', 'center', 'flex-end'] as AlignType[],
+      control: { type: 'radio' },
     },
     gap: {
       defaultValue: '0.5rem',
@@ -22,13 +28,9 @@ export default {
   },
 };
 
-export const buttonGroup: Story<ButtonGroupProps> = ({
-  direction,
-  rightAlign,
-  gap,
-}) => {
+export const buttonGroup: Story<ButtonGroupProps> = ({ direction, rowAlign, colAlign, gap }) => {
   return (
-    <ButtonGroup direction={direction} rightAlign={rightAlign} gap={gap}>
+    <ButtonGroup direction={direction} rowAlign={rowAlign} colAlign={colAlign} gap={gap}>
       <Button theme="tertiary">취소</Button>
       <Button>확인</Button>
     </ButtonGroup>
@@ -39,7 +41,7 @@ buttonGroup.storyName = 'Default';
 
 export const rightAlign = () => {
   return (
-    <ButtonGroup rightAlign>
+    <ButtonGroup rowAlign="flex-end">
       <Button theme="tertiary">취소</Button>
       <Button>확인</Button>
     </ButtonGroup>

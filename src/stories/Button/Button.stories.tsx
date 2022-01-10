@@ -3,7 +3,6 @@ import { Story } from '@storybook/react';
 import Button, { ButtonProps } from './Button';
 import { action } from '@storybook/addon-actions';
 import ButtonGroup from '@stories/ButtonGroup/ButtonGroup';
-import Icon from '@stories/icon/Icon';
 import { RiBookFill } from 'react-icons/ri';
 import { AiFillHome } from 'react-icons/ai';
 import { FaUserCircle } from 'react-icons/fa';

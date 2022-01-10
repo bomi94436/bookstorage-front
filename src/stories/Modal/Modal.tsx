@@ -53,7 +53,7 @@ const Modal = ({
           <div className="modal-contents">{children}</div>
 
           {!hideButtons && (
-            <ButtonGroup css={{ marginTop: '48px' }} rightAlign gap="16px">
+            <ButtonGroup css={{ marginTop: '48px' }} rowAlign="flex-end" gap="16px">
               {cancellable && (
                 <Button theme="tertiary" onClick={onCancel} width={theme.defaultSize.button}>
                   {cancelText}

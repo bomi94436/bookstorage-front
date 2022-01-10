@@ -1,10 +1,14 @@
 import { css } from '@emotion/react';
 
+export type AlignType = 'flex-start' | 'center' | 'flex-end';
+
 export type ButtonGroupProps = {
   /** 버튼을 보여줄 방향 */
   direction: 'row' | 'column';
-  /** 버튼을 우측에 보여줍니다. */
-  rightAlign?: boolean;
+  /** 버튼의 가로정렬 */
+  rowAlign?: AlignType;
+  /** 버튼의 세로정렬 */
+  colAlign?: AlignType;
   /** 버튼과 버튼 사이의 간격을 설정합니다. */
   gap: number | string;
   /** 버튼 그룹에서 보여줄 버튼들 */
@@ -16,7 +20,14 @@ export type ButtonGroupProps = {
 /**
  * 여러개의 `Button` 컴포넌트를 보여주고 싶거나, 버튼을 우측에 정렬하고 싶을 땐 `ButtonGroup` 컴포넌트를 사용하세요.
  */
-const ButtonGroup = ({ direction, rightAlign, children, gap, className }: ButtonGroupProps) => {
+const ButtonGroup = ({
+  direction,
+  rowAlign,
+  colAlign,
+  children,
+  gap,
+  className,
+}: ButtonGroupProps) => {
   return (
     <div
       css={[
@@ -25,7 +36,8 @@ const ButtonGroup = ({ direction, rightAlign, children, gap, className }: Button
           flexDirection: direction,
         },
         gapStyle(direction, gap),
-        rightAlign && rightAlignStyle,
+        rowAlign && alignStyle(direction, 'row', rowAlign),
+        colAlign && alignStyle(direction, 'column', colAlign),
       ]}
       className={className}
     >
@@ -49,8 +61,16 @@ const gapStyle = (direction: 'row' | 'column', gap: number | string) => {
   });
 };
 
-const rightAlignStyle = css`
-  justify-content: flex-end;
-`;
+const alignStyle = (
+  direction: 'row' | 'column',
+  alignDirection: 'row' | 'column',
+  align: string
+) => {
+  const directionType = direction === alignDirection ? 'justify-content' : 'align-items';
+
+  return css({
+    [directionType]: align,
+  });
+};
 
 export default ButtonGroup;
