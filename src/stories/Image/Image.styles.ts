@@ -12,3 +12,18 @@ export const backgroudImage = (url: string) => css`
   background-repeat: no-repeat;
   background-size: cover;
 `;
+
+export const iconOnlySizes = {
+  small: css`
+    width: 12px;
+    height: 12px;
+  `,
+  medium: css`
+    width: 14px;
+    height: 14px;
+  `,
+  large: css`
+    width: 18px;
+    height: 18px;
+  `,
+};

@@ -1,10 +1,19 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import logo from '@stories/assets/book-storage-logo3.png';
-import { navBox, style, topBox } from './Sidebar.styles';
+import {
+  navBox,
+  sidebarSize,
+  style,
+  toggleButton,
+  toggleButtonPosition,
+  topBox,
+  topBoxDisplay,
+} from './Sidebar.styles';
 import { Link } from 'react-router-dom';
 import Button from '@stories/Button/Button';
 import { BsGridFill } from 'react-icons/bs';
-import { Title } from '@stories/.';
+import { Title, Image } from '@stories/.';
+import { size } from '@styles/theme';
 
 export type SidebarProps = {
   open: boolean;
@@ -13,33 +22,79 @@ export type SidebarProps = {
 };
 
 const Sidebar = ({ open, setOpen, children }: SidebarProps) => {
+  const opened: 'opened' | 'closed' = open ? 'opened' : 'closed';
+
+  useEffect(() => {
+    if (window.innerWidth < size.largest && open) {
+      setOpen(false);
+    }
+  }, [open, setOpen]);
+
   return (
-    <aside css={[style]}>
-      <div css={[topBox]}>
-        <Link to="/">
-          <img className="logo" src={logo} alt="logo" />
-        </Link>
+    <aside css={[style, sidebarSize[opened]]}>
+      {open ? (
+        <>
+          <div css={[topBox]}>
+            <Link to="/">
+              <Image src={logo} width="40px" height="40px" />
+            </Link>
 
-        <Link to="/">
-          <Title level="3" margin={{ left: '16px', bottom: '0' }}>
-            Book Storage
-          </Title>
-        </Link>
+            <Link to="/">
+              <Title level="3" margin={{ left: '16px', bottom: '0' }}>
+                Book Storage
+              </Title>
+            </Link>
+          </div>
 
-        <Button theme="tertiary" size="large" className="close-sidebar" iconOnly>
-          <BsGridFill />
-        </Button>
-      </div>
+          <Button
+            theme="tertiary"
+            size="large"
+            css={[toggleButton, toggleButtonPosition[opened]]}
+            iconOnly
+            onClick={() => {
+              if (window.innerWidth >= size.largest) {
+                setOpen((prev) => !prev);
+              }
+            }}
+          >
+            <BsGridFill />
+          </Button>
 
-      <nav css={[navBox]}>{children}</nav>
+          <nav css={[navBox]}>{children}</nav>
+        </>
+      ) : (
+        <>
+          <div css={[topBox, topBoxDisplay]}>
+            <Link to="/">
+              <Image src={logo} width="40px" height="40px" />
+            </Link>
+          </div>
+
+          {window.innerWidth >= size.largest && (
+            <Button
+              theme="tertiary"
+              size="large"
+              css={[toggleButton, toggleButtonPosition[opened]]}
+              iconOnly
+              onClick={() => {
+                if (window.innerWidth >= size.largest) {
+                  setOpen((prev) => !prev);
+                }
+              }}
+            >
+              <BsGridFill />
+            </Button>
+          )}
+
+          <nav css={[navBox]}>{children}</nav>
+        </>
+      )}
     </aside>
   );
 };
 
 Sidebar.defaultProps = {
-  size: 'normal',
-  cancelText: '취소',
-  confirmText: '확인',
+  open: true,
 };
 
 export default Sidebar;

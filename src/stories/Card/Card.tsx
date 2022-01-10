@@ -5,7 +5,7 @@ import { Image } from '@stories/.';
 export type CardProps = {
   imgSrc: string;
   children?: React.ReactNode;
-  active?: boolean;
+  active: boolean;
   onClick?: (e?: React.MouseEvent<HTMLElement>) => void;
 };
 
@@ -21,6 +21,10 @@ const Card = ({ imgSrc, children, active, onClick }: CardProps) => {
       <div css={[content]}>{children}</div>
     </button>
   );
+};
+
+Card.defaultProps = {
+  active: false,
 };
 
 export default Card;

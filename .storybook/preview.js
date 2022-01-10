@@ -1,12 +1,15 @@
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '@styles/theme';
 import GlobalStyle from '@styles/global';
+import { MemoryRouter } from 'react-router';
 
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Story />
+      <MemoryRouter initialEntries={['/']}>
+        <Story />
+      </MemoryRouter>
     </ThemeProvider>
   ),
 ];

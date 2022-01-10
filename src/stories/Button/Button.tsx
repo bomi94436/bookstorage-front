@@ -15,11 +15,9 @@ export type ButtonProps = {
   width?: string | number;
   /** 버튼에서 아이콘만 보여줄 때 이 값을 `true`로 설정하세요. */
   iconOnly?: boolean;
-  /** 커스텀 클래스 네임 */
+  /** 버튼에 css 추가 시 className으로 적용됨 */
   className?: string;
-  /** 커스텀 버튼 스타일 */
-  customStyle?: SerializedStyles[];
-  /** 버튼 안의 내용 */
+  /** 버튼 안의 내용(텍스트 제외) */
   children?: React.ReactNode;
   /** 클릭했을 때 호출할 함수 */
   onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
@@ -33,7 +31,6 @@ const Button = ({
   disabled,
   width,
   iconOnly,
-  customStyle,
   className,
   children,
   onClick,
@@ -46,7 +43,6 @@ const Button = ({
         sizes[size],
         { width },
         iconOnly && [iconOnlyStyle, iconOnlySizes[size]],
-        customStyle,
       ]}
       className={className ?? ''}
       disabled={disabled}

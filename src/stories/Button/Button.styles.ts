@@ -20,8 +20,8 @@ export const style = css`
   svg {
     width: 1em;
   }
-  *:first-child:nth-last-child(2),
-  *:first-child:nth-last-child(2) ~ :not(span) {
+  /* *:first-of-type:nth-last-of-type(2), */
+  & > :not(span) {
     margin-right: 1em;
   }
   &:disabled {
@@ -41,18 +41,12 @@ export const themes = {
   primary: css`
     background: ${theme.color.main};
     color: ${theme.color.white};
-    svg {
-      fill: ${theme.color.white};
-    }
   `,
 
   secondary: css`
     background: ${theme.color.white};
     color: ${theme.color.main};
     border: 2px solid ${theme.color.main};
-    svg {
-      fill: ${theme.color.main};
-    }
     &:hover:enabled {
       filter: brightness(130%);
     }
@@ -64,9 +58,6 @@ export const themes = {
   tertiary: css`
     background: ${theme.color.white};
     color: ${theme.color.black};
-    svg {
-      fill: ${theme.color.black};
-    }
     &:hover:enabled {
       filter: brightness(100%);
       color: ${theme.color.lightBlack};
@@ -79,9 +70,6 @@ export const themes = {
   quaternary: css`
     background: ${theme.color.white};
     color: ${theme.color.gray};
-    svg {
-      fill: ${theme.color.black};
-    }
     &:hover:enabled {
       filter: brightness(100%);
       background-color: ${theme.color.lightGray};
@@ -113,7 +101,9 @@ export const sizes = {
 export const iconOnlyStyle = css`
   padding: 0;
   border-radius: 50%;
-  svg {
+  svg,
+  div,
+  img {
     margin: 0;
   }
 `;

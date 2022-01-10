@@ -4,13 +4,15 @@ import Button, { ButtonProps } from './Button';
 import { action } from '@storybook/addon-actions';
 import ButtonGroup from '@stories/ButtonGroup/ButtonGroup';
 import Icon from '@stories/icon/Icon';
-import { theme } from '@styles/theme';
+import { RiBookFill } from 'react-icons/ri';
+import { AiFillHome } from 'react-icons/ai';
+import { FaUserCircle } from 'react-icons/fa';
 
 export default {
   title: 'components/Button',
   component: Button,
   argTypes: {
-    children: {
+    label: {
       defaultValue: 'BUTTON',
       control: { type: 'text' },
     },
@@ -35,10 +37,15 @@ export default {
   },
 };
 
-export const button: Story<ButtonProps> = ({ children, size, theme, disabled, width }) => (
-  <Button size={size} theme={theme} disabled={disabled} width={width} onClick={action('onClick')}>
-    {children}
-  </Button>
+export const button: Story<ButtonProps> = ({ label, size, theme, disabled, width }) => (
+  <Button
+    label={label}
+    size={size}
+    theme={theme}
+    disabled={disabled}
+    width={width}
+    onClick={action('onClick')}
+  />
 );
 
 button.storyName = 'Default';
@@ -60,25 +67,6 @@ export const secondaryButton = () => {
 
 export const tertiaryButton = () => {
   return <Button theme="tertiary" label="TERTIARY" />;
-};
-
-const customStyle = css`
-  background: ${theme.color.white};
-  color: ${theme.color.gray};
-  svg {
-    fill: ${theme.color.black};
-  }
-  &:hover:enabled {
-    filter: brightness(100%);
-    background-color: ${theme.color.lightGray};
-  }
-  &:active:enabled {
-    filter: brightness(95%);
-  }
-`;
-
-export const customButton = () => {
-  return <Button customStyle={[customStyle]} label="CUSTOM" />;
 };
 
 export const sizes = () => {
@@ -114,17 +102,17 @@ export const disabled = () => {
       </div>
       <div>
         <Button disabled label="LIKE">
-          <Icon icon="heart" />
+          <RiBookFill />
         </Button>
       </div>
       <div>
         <Button disabled theme="secondary" label="LIKE">
-          <Icon icon="heart" />
+          <AiFillHome />
         </Button>
       </div>
       <div>
         <Button disabled theme="tertiary" label="LIKE">
-          <Icon icon="heart" />
+          <FaUserCircle />
         </Button>
       </div>
     </div>
@@ -148,13 +136,13 @@ export const withIcon = () => (
   <div>
     <ButtonGroup gap="1rem">
       <Button size="small" label="LIKE">
-        <Icon icon="heart" />
+        <RiBookFill />
       </Button>
       <Button theme="secondary" label="LIKE">
-        <Icon icon="heart" />
+        <AiFillHome />
       </Button>
       <Button theme="tertiary" size="large" label="LIKE">
-        <Icon icon="heart" />
+        <FaUserCircle />
       </Button>
     </ButtonGroup>
   </div>
@@ -164,13 +152,13 @@ export const iconOnly = () => (
   <div>
     <ButtonGroup gap="1rem">
       <Button iconOnly size="small">
-        <Icon icon="heart" />
+        <RiBookFill />
       </Button>
       <Button iconOnly>
-        <Icon icon="heart" />
+        <AiFillHome />
       </Button>
       <Button iconOnly size="large">
-        <Icon icon="heart" />
+        <FaUserCircle />
       </Button>
     </ButtonGroup>
   </div>

@@ -1,58 +1,56 @@
 import { getUser } from '@apis/user';
 import BarcodeScannerModal from '@components/BarcodeScannerModal';
 import { BACKEND_URL } from '@config/.';
-import { Button, ButtonGroup, Image } from '@stories/.';
+import { ButtonGroup } from '@stories/.';
+import {
+  AddBookInBookStorageButton,
+  HomeButton,
+  LoginButton,
+  UserButton,
+} from '@stories/Sidebar/SidebarButtons';
 import Sidebar from '@stories/Sidebar/Sidebar';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { useQuery, useQueryClient } from 'react-query';
 import { NavLink } from 'react-router-dom';
 import { IUserInfo } from 'types';
 
-type SideNavbarProps = {
-  open: boolean;
-  setOpen: Dispatch<SetStateAction<boolean>>;
-};
-
-const SideNavbar = ({ open, setOpen }: SideNavbarProps) => {
-  const [oepnBarcodeScannerModal, setOepnBarcodeScannerModal] = useState<boolean>(false);
+const SideNavbar = () => {
+  const [openSidebar, setOpenSidebar] = useState<boolean>(true);
+  const [openBarcodeScannerModal, setOpenBarcodeScannerModal] = useState<boolean>(false);
   const queryClient = useQueryClient();
 
   const { data } = useQuery<IUserInfo, Error>(['user'], getUser, {
     retry: false,
-    onError: () => {
-      queryClient.invalidateQueries(['user']);
-    },
+    // onError: (error: Error) => {
+    //   if (error.message !== 'Network Error') queryClient.invalidateQueries(['user']);
+    // },
   });
 
   return (
-    <Sidebar open={open} setOpen={setOpen}>
+    <Sidebar open={openSidebar} setOpen={setOpenSidebar}>
       <ButtonGroup direction="column" gap="16px">
         <NavLink to="/">
-          <Button width="100%" theme="quaternary" label="홈" />
+          <HomeButton open={openSidebar} />
         </NavLink>
 
-        <Button
-          width="100%"
-          theme="quaternary"
-          label="독후감"
-          onClick={() => setOepnBarcodeScannerModal(true)}
+        <AddBookInBookStorageButton
+          open={openSidebar}
+          onClick={() => setOpenBarcodeScannerModal(true)}
         />
       </ButtonGroup>
 
       {data ? (
-        <Button width="100%" theme="quaternary" label={data.username}>
-          <Image src={data.profileImageUrl} width="32px" height="32px" round={true} />
-        </Button>
+        <UserButton open={openSidebar} data={data} />
       ) : (
         <a
           href={`${BACKEND_URL}/oauth2/authorization/naver?redirect_uri=${window.location.origin}/oauth2/redirect`}
         >
-          <Button width="100%" theme="quaternary" label="로그인" />
+          <LoginButton open={openSidebar} />
         </a>
       )}
 
-      {oepnBarcodeScannerModal && (
-        <BarcodeScannerModal close={() => setOepnBarcodeScannerModal(false)} />
+      {openBarcodeScannerModal && (
+        <BarcodeScannerModal close={() => setOpenBarcodeScannerModal(false)} />
       )}
     </Sidebar>
   );

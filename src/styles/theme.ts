@@ -1,11 +1,11 @@
 import { Theme } from '@emotion/react';
 
 export const size = {
-  largest: '75em', // 1200px
-  large: '56.25em', // 900px
-  medium: '37.5em', // 600px
-  small: '31.25em', // 500px
-  smallest: '25em', // 400px
+  largest: 1200, // 1200px
+  large: 900, // 900px
+  medium: 600, // 600px
+  small: 500, // 500px
+  smallest: 400, // 400px
 };
 
 const color: Theme['color'] = {
@@ -31,8 +31,8 @@ export const theme: Theme = {
   },
   mq: {
     // media query
-    laptop: `@media only screen and (min-width: ${size.largest})`,
-    tablet: `@media only screen and (min-width: ${size.large})`,
-    mobile: `@media only screen and (min-width: ${size.small})`,
+    laptop: `@media only screen and (min-width: ${size.largest}px)`,
+    tablet: `@media only screen and (min-width: ${size.large}px)`,
+    mobile: `@media only screen and (min-width: ${size.small}px)`,
   },
 };

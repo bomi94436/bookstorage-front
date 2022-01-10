@@ -10,7 +10,6 @@ export const style = css`
   background-color: ${theme.color.white};
 
   ${theme.mq.laptop} {
-    width: 280px;
   }
 
   height: 100%;
@@ -19,26 +18,43 @@ export const style = css`
   border-right: 1px solid ${theme.border.color};
 `;
 
-export const topBox = css`
-  position: relative;
+export const sidebarSize = {
+  opened: css`
+    width: 280px;
+  `,
+  closed: css`
+    width: 100px;
+  `,
+};
 
+export const toggleButton = css`
+  position: fixed;
+  z-index: 1;
+  border: 1px solid ${theme.border.color};
+`;
+
+export const toggleButtonPosition = {
+  opened: css`
+    top: 25px;
+    left: 257px;
+  `,
+  closed: css`
+    top: 25px;
+    left: 77px;
+  `,
+};
+
+export const topBox = css`
   display: flex;
   align-items: center;
 
   height: 50px;
   padding: 24px;
   border-bottom: 1px solid ${theme.border.color};
+`;
 
-  .logo {
-    width: 40px;
-    height: 40px;
-  }
-
-  .close-sidebar {
-    position: absolute;
-    top: 25px;
-    right: 12px;
-  }
+export const topBoxDisplay = css`
+  justify-content: center;
 `;
 
 export const navBox = css`
@@ -52,6 +68,7 @@ export const navBox = css`
   .active {
     & > * {
       color: ${theme.color.main};
+      background-color: ${theme.color.lightGray};
     }
   }
 `;
