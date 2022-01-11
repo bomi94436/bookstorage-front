@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
-import logo from '@stories/assets/book-storage-logo3.png';
+import logo from '@stories/assets/book-storage-logo.png';
 import {
   navBox,
   sidebarSize,
