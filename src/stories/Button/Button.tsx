@@ -1,4 +1,3 @@
-import { SerializedStyles } from '@emotion/react';
 import React from 'react';
 import { iconOnlySizes, iconOnlyStyle, sizes, style, themes } from './Button.styles';
 

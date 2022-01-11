@@ -28,7 +28,7 @@ export const SidebarStory: Story<SidebarProps> = ({ width }) => {
       <ButtonGroup direction="column" gap="16px">
         <HomeButton open={open} />
 
-        <AddBookInBookStorageButton open={open} onClick={() => ({})} />
+        <AddBookInBookStorageButton open={open} />
       </ButtonGroup>
 
       <LoginButton open={open} />

@@ -1,4 +1,6 @@
-import { sideRight, style } from './Layout.styles';
+import React from 'react';
+import { useState } from 'react';
+import { sideRight, sideRightSizes } from './Layout.styles';
 import SideNavbar from './SideNavBar';
 
 type LayoutProps = {
@@ -6,11 +8,13 @@ type LayoutProps = {
 };
 
 const Layout = ({ children }: LayoutProps) => {
+  const [openSidebar, setOpenSidebar] = useState<boolean>(true);
+
   return (
-    <div css={[style]}>
-      <SideNavbar />
-      <div css={[sideRight]}>{children}</div>
-    </div>
+    <React.Fragment>
+      <SideNavbar open={openSidebar} setOpen={setOpenSidebar} />
+      <div css={[sideRight, sideRightSizes[openSidebar ? 'opened' : 'closed']]}>{children}</div>
+    </React.Fragment>
   );
 };
 

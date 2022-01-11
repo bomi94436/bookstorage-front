@@ -13,17 +13,11 @@ export const HomeButton = ({ open }: { open: boolean }) =>
     </Button>
   );
 
-export const AddBookInBookStorageButton = ({
-  open,
-  onClick,
-}: {
-  open: boolean;
-  onClick: () => void;
-}) =>
+export const AddBookInBookStorageButton = ({ open }: { open: boolean }) =>
   open ? (
-    <Button width="100%" theme="quaternary" label="독후감" onClick={onClick} />
+    <Button width="100%" theme="quaternary" label="책 검색" />
   ) : (
-    <Button size="large" theme="quaternary" iconOnly onClick={onClick}>
+    <Button size="large" theme="quaternary" iconOnly>
       <RiBookFill />
     </Button>
   );

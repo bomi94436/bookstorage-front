@@ -1,5 +1,4 @@
 import { getUser } from '@apis/user';
-import BarcodeScannerModal from '@components/BarcodeScannerModal';
 import { BACKEND_URL } from '@config/.';
 import { ButtonGroup } from '@stories/.';
 import {
@@ -9,15 +8,18 @@ import {
   UserButton,
 } from '@stories/Sidebar/SidebarButtons';
 import Sidebar from '@stories/Sidebar/Sidebar';
-import { useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { useQuery, useQueryClient } from 'react-query';
 import { NavLink } from 'react-router-dom';
 import { IUserInfo } from 'types';
 import useWindowDimensions from '@hooks/useWindowDimensions';
 
-const SideNavbar = () => {
-  const [openSidebar, setOpenSidebar] = useState<boolean>(true);
-  const [openBarcodeScannerModal, setOpenBarcodeScannerModal] = useState<boolean>(false);
+interface SideNavBarProps {
+  open: boolean;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+const SideNavbar = ({ open, setOpen }: SideNavBarProps) => {
   const queryClient = useQueryClient();
   const { width } = useWindowDimensions();
 
@@ -29,30 +31,25 @@ const SideNavbar = () => {
   });
 
   return (
-    <Sidebar open={openSidebar} setOpen={setOpenSidebar} width={width}>
-      <ButtonGroup direction="column" rowAlign={!openSidebar ? 'center' : undefined} gap="16px">
+    <Sidebar open={open} setOpen={setOpen} width={width}>
+      <ButtonGroup direction="column" rowAlign={!open ? 'center' : undefined} gap="16px">
         <NavLink to="/">
-          <HomeButton open={openSidebar} />
+          <HomeButton open={open} />
         </NavLink>
 
-        <AddBookInBookStorageButton
-          open={openSidebar}
-          onClick={() => setOpenBarcodeScannerModal(true)}
-        />
+        <NavLink to="/storage/search/by-barcode">
+          <AddBookInBookStorageButton open={open} />
+        </NavLink>
       </ButtonGroup>
 
       {data ? (
-        <UserButton open={openSidebar} data={data} />
+        <UserButton open={open} data={data} />
       ) : (
         <a
           href={`${BACKEND_URL}/oauth2/authorization/naver?redirect_uri=${window.location.origin}/oauth2/redirect`}
         >
-          <LoginButton open={openSidebar} />
+          <LoginButton open={open} />
         </a>
-      )}
-
-      {openBarcodeScannerModal && (
-        <BarcodeScannerModal close={() => setOpenBarcodeScannerModal(false)} />
       )}
     </Sidebar>
   );

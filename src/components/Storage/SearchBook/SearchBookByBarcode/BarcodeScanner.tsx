@@ -12,7 +12,6 @@ const BarcodeScanner = ({ isbn, setISBN }: props) => {
       <BarcodeScannerComponent
         onUpdate={(err, result) => {
           if (result && isbn !== result.text) setISBN(result.text);
-          // else setISBN('Not Found');
         }}
       />
       <p>isbn: {isbn}</p>

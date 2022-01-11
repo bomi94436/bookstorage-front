@@ -1,14 +1,15 @@
 import { css } from '@emotion/react';
 
-export const style = css`
-  /* position: fixed;
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw; */
-`;
-
 export const sideRight = css`
-  /* position: relative; */
-  margin-left: calc(20vw + 10px);
+  padding: 35px;
   height: 100%;
 `;
+
+export const sideRightSizes = {
+  opened: css`
+    margin-left: 280px;
+  `,
+  closed: css`
+    margin-left: 100px;
+  `,
+};

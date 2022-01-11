@@ -1,9 +1,7 @@
-import Layout from '@components/Layout';
-import OAuth2RedirectHandler from '@components/Login/OAuth2RedirectHandler';
-import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-import Home from './components/Home/index';
+import { Home, Layout, OAuth2RedirectHandler } from '@components/.';
+import MyStorage from '@components/Storage/MyStorage';
+import SearchBookByBarcode from '@components/Storage/SearchBook/SearchBookByBarcode';
 
 function App() {
   return (
@@ -11,6 +9,14 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
+
+          <Route path="/storage">
+            <Route path="" element={<MyStorage />} />
+            <Route path="search">
+              <Route path="by-barcode" element={<SearchBookByBarcode />} />
+            </Route>
+          </Route>
+
           <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
 
           <Route
