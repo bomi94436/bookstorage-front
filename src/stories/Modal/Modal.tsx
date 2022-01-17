@@ -55,14 +55,14 @@ const Modal = ({
           {!hideButtons && (
             <ButtonGroup css={{ marginTop: '48px' }} rowAlign="flex-end" gap="16px">
               {cancellable && (
-                <Button theme="tertiary" onClick={onCancel} width={theme.defaultSize.button}>
+                <Button theme="tertiary" onClick={onCancel} width="default">
                   {cancelText}
                 </Button>
               )}
               <Button
                 onClick={onConfirm}
-                width={theme.defaultSize.button}
                 disabled={disableConfirm ? disableConfirm : false}
+                width="default"
               >
                 {confirmText}
               </Button>

@@ -26,9 +26,6 @@ export const theme: Theme = {
     color: color.semiLightGray,
     radius: '10px',
   },
-  defaultSize: {
-    button: '80px',
-  },
   mq: {
     // media query
     laptop: `@media only screen and (min-width: ${size.largest}px)`,

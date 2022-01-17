@@ -17,9 +17,6 @@ declare module '@emotion/react' {
       color: string;
       radius: string;
     };
-    defaultSize: {
-      button: string;
-    };
     mq: {
       laptop: string;
       tablet: string;

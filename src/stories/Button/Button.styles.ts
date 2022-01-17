@@ -82,17 +82,17 @@ export const themes = {
 
 export const sizes = {
   small: css`
-    height: 1.75rem;
+    height: 1.75rem; // 28px
     font-size: 12px;
     padding: 0 0.875rem;
   `,
   medium: css`
-    height: 2.5rem;
+    height: 2.5rem; // 40px
     font-size: 14px;
     padding: 0 1rem;
   `,
   large: css`
-    height: 3rem;
+    height: 3rem; // 48px
     font-size: 18px;
     padding: 0 1.5rem;
   `,

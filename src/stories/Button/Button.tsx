@@ -11,7 +11,7 @@ export type ButtonProps = {
   /** 버튼을 비활성화 시킵니다. */
   disabled?: boolean;
   /** 버튼의 너비를 임의로 설정합니다. */
-  width?: string | number;
+  width?: 'default' | string;
   /** 버튼에서 아이콘만 보여줄 때 이 값을 `true`로 설정하세요. */
   iconOnly?: boolean;
   /** 버튼에 css 추가 시 className으로 적용됨 */
@@ -40,7 +40,7 @@ const Button = ({
         style,
         themes[theme],
         sizes[size],
-        { width },
+        width === 'default' ? { width: '80px' } : { width },
         iconOnly && [iconOnlyStyle, iconOnlySizes[size]],
       ]}
       className={className ?? ''}
