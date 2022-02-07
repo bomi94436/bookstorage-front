@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 export const sideRight = css`
   padding: 35px;
-  height: 100%;
+  height: calc(100vh - 70px);
 `;
 
 export const sideRightSizes = {

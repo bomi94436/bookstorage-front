@@ -1,6 +1,6 @@
 import { getBook } from '@apis/book';
-import { Card, Divider, Title, Text, ButtonGroup, Button } from '@stories/.';
-import { IBook } from 'types/.';
+import { Card, Divider, Title, Text, ButtonGroup, Button } from '@stories';
+import { IBook } from 'types';
 import { useCallback, useState } from 'react';
 import { useQuery } from 'react-query';
 import BarcodeScanner from './BarcodeScanner';

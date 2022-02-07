@@ -1,4 +1,4 @@
-import { Button, Image } from '@stories/.';
+import { Button, Image } from '@stories';
 import { IUserInfo } from 'types';
 import { AiFillHome } from 'react-icons/ai';
 import { RiBookFill } from 'react-icons/ri';

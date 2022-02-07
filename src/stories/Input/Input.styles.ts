@@ -8,6 +8,7 @@ export const inputWrapper = css`
   border: 1px solid ${theme.border.color};
   border-radius: ${theme.border.radius};
   padding: 0.75rem 1rem;
+  background-color: white;
 
   svg {
     margin-right: 0.5rem;

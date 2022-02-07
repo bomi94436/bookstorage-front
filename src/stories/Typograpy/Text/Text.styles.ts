@@ -3,13 +3,13 @@ import { theme } from '@styles/theme';
 
 export const sizes = {
   small: css`
-    font-size: 12px;
+    font-size: 0.8rem;
   `,
   medium: css`
-    font-size: 14px;
+    font-size: 1rem;
   `,
   large: css`
-    font-size: 18px;
+    font-size: 1.2rem;
   `,
 };
 

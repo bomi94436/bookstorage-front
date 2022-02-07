@@ -2,8 +2,7 @@ import Button from '@stories/Button/Button';
 import ButtonGroup from '@stories/ButtonGroup/ButtonGroup';
 import React, { Fragment } from 'react';
 import { darkLayer, fullscreen, sizes, whiteBox, whiteBoxWrapper } from './Modal.styles';
-import { theme } from '@styles/theme';
-import { Title, Text } from '@stories/.';
+import { Title, Text } from '@stories';
 
 export type ModalProps = {
   visible: boolean;

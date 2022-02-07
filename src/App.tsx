@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Home, Layout, OAuth2RedirectHandler } from '@components/.';
+import { Home, Layout, Login, OAuth2RedirectHandler, Signup } from '@components';
 import MyStorage from '@components/Storage/MyStorage';
 import SearchBookByBarcode from '@components/Storage/SearchBook/SearchBookByBarcode';
 
@@ -16,6 +16,9 @@ function App() {
               <Route path="by-barcode" element={<SearchBookByBarcode />} />
             </Route>
           </Route>
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
 
           <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler />} />
 

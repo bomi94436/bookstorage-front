@@ -1,6 +1,6 @@
 import React from 'react';
 import { activeCard, content, style } from './Card.styles';
-import { Image } from '@stories/.';
+import { Image } from '@stories';
 
 export type CardProps = {
   imgSrc: string;

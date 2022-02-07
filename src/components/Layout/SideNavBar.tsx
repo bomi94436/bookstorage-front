@@ -1,6 +1,5 @@
 import { getUser } from '@apis/user';
-import { BACKEND_URL } from '@config/.';
-import { ButtonGroup } from '@stories/.';
+import { ButtonGroup } from '@stories';
 import {
   AddBookInBookStorageButton,
   HomeButton,
@@ -45,11 +44,9 @@ const SideNavbar = ({ open, setOpen }: SideNavBarProps) => {
       {data ? (
         <UserButton open={open} data={data} />
       ) : (
-        <a
-          href={`${BACKEND_URL}/oauth2/authorization/naver?redirect_uri=${window.location.origin}/oauth2/redirect`}
-        >
+        <NavLink to="/login">
           <LoginButton open={open} />
-        </a>
+        </NavLink>
       )}
     </Sidebar>
   );

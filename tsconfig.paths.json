@@ -3,12 +3,19 @@
     "baseUrl": "./src",
     "paths": {
       "@components/*": ["./components/*"],
+      "@components": ["./components"],
       "@styles/*": ["./styles/*"],
+      "@styles": ["./styles"],
       "@stories/*": ["./stories/*"],
+      "@stories": ["./stories"],
       "@apis/*": ["./apis/*"],
+      "@apis": ["./apis"],
       "@config/*": ["./config/*"],
+      "@config": ["./config"],
       "@types/*": ["./types/*"],
-      "@hooks/*": ["./hooks/*"]
+      "@types": ["./types"],
+      "@hooks/*": ["./hooks/*"],
+      "@hooks": ["./hooks"]
     }
   }
 }

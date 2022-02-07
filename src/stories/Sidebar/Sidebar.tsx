@@ -12,7 +12,7 @@ import {
 import { Link } from 'react-router-dom';
 import Button from '@stories/Button/Button';
 import { BsGridFill } from 'react-icons/bs';
-import { Title, Image } from '@stories/.';
+import { Title, Image } from '@stories';
 import { size } from '@styles/theme';
 
 export type SidebarProps = {

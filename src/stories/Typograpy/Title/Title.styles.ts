@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import { theme } from '@styles/theme';
 
 export const style = css`
+  display: inline-block;
   color: ${theme.color.black};
 `;
 
