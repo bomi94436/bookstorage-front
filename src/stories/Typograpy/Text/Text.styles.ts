@@ -26,6 +26,9 @@ export const colors = {
   white: css`
     color: ${theme.color.white};
   `,
+  red: css`
+    color: ${theme.color.red};
+  `,
 };
 
 export const bolded = css`

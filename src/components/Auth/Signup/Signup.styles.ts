@@ -9,13 +9,13 @@ export const style = css`
 `;
 
 export const content = css`
-  min-width: 300px;
+  width: 300px;
 `;
 
 export const field = css`
   margin-bottom: 1rem;
 
-  & > * {
+  & > div {
     margin-top: 0.5rem;
   }
 `;

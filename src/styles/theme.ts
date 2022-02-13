@@ -18,6 +18,7 @@ const color: Theme['color'] = {
   lightGray: '#e9edf2',
   semiWhite: '#f7f8fd',
   white: '#ffffff',
+  red: '#a84232',
 };
 
 export const theme: Theme = {
