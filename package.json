@@ -33,7 +33,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "export HTTPS=true && export PORT=8082 && craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",

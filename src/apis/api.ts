@@ -4,6 +4,7 @@ import { setConfig } from './interceptor';
 
 const API: AxiosInstance = axios.create({
   baseURL: `${BACKEND_URL}`,
+  withCredentials: true,
 });
 
 API.interceptors.request.use(setConfig);
