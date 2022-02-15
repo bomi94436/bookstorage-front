@@ -2,7 +2,6 @@ export interface IUserInfo {
   email: string;
   nickname: string;
   profileImageUrl: string;
-  username: string;
 }
 
 export interface IBook {

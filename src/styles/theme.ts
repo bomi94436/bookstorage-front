@@ -8,7 +8,7 @@ export const size = {
   smallest: 400, // 400px
 };
 
-const color: Theme['color'] = {
+export const palette: Theme['color'] = {
   main: '#3d6e59',
   mainHover: '#a1b2aa',
   black: '#343a40',
@@ -22,9 +22,9 @@ const color: Theme['color'] = {
 };
 
 export const theme: Theme = {
-  color,
+  color: palette,
   border: {
-    color: color.semiLightGray,
+    color: palette.semiLightGray,
     radius: '10px',
   },
   mq: {

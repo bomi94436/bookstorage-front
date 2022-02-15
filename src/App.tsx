@@ -11,7 +11,7 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/storage">
-            <Route path="" element={<MyStorage />} />
+            <Route index element={<MyStorage />} />
             <Route path="search">
               <Route path="by-barcode" element={<SearchBookByBarcode />} />
             </Route>

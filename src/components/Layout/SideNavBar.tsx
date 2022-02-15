@@ -1,17 +1,16 @@
 import { getUser } from '@apis/user';
-import { ButtonGroup } from '@stories';
-import {
-  AddBookInBookStorageButton,
-  HomeButton,
-  LoginButton,
-  UserButton,
-} from '@stories/Sidebar/SidebarButtons';
-import Sidebar from '@stories/Sidebar/Sidebar';
+import { ButtonGroup, Sidebar } from '@stories';
 import { Dispatch, SetStateAction } from 'react';
-import { useQuery, useQueryClient } from 'react-query';
+import { useQuery } from 'react-query';
 import { NavLink } from 'react-router-dom';
 import { IUserInfo } from 'types';
 import useWindowDimensions from '@hooks/useWindowDimensions';
+import {
+  AddBookInBookStorageButton,
+  HomeButton,
+  UserButton,
+  LoginButton,
+} from '@stories/Sidebar/SidebarButtons';
 
 interface SideNavBarProps {
   open: boolean;
@@ -19,7 +18,6 @@ interface SideNavBarProps {
 }
 
 const SideNavbar = ({ open, setOpen }: SideNavBarProps) => {
-  const queryClient = useQueryClient();
   const { width } = useWindowDimensions();
 
   const { data } = useQuery<IUserInfo, Error>(['user'], getUser, {

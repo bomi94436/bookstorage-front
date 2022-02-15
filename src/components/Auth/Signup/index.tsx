@@ -121,12 +121,12 @@ const Signup = () => {
 
   const onSubmit = () => {
     if (input && errorMessage) {
-      Object.keys(input).forEach((field) => {
-        if (!input[field as keyof SignupInput] || errorMessage[field as keyof SignupInput]) {
-          alert('입력하지 않은 항목이 있습니다.');
-          return;
-        }
-      });
+      // Object.keys(input).forEach((field) => {
+      //   if (!input[field as keyof SignupInput] || errorMessage[field as keyof SignupInput]) {
+      //     alert('입력하지 않은 항목이 있습니다.');
+      //     return;
+      //   }
+      // });
 
       const data: SignupRequest = Object.keys(input).reduce((prev, curr) => {
         if (curr === 'passwordConfirm') return prev;

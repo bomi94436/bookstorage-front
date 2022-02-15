@@ -24,8 +24,8 @@ export const AddBookInBookStorageButton = ({ open }: { open: boolean }) =>
 
 export const UserButton = ({ open, data }: { open: boolean; data: IUserInfo }) =>
   open ? (
-    <Button width="100%" theme="quaternary" label={data.username}>
-      <Image src={data.profileImageUrl} width="32px" height="32px" round={true} />
+    <Button width="100%" theme="quaternary" label={data.nickname}>
+      <Image src={data.profileImageUrl} width="3rem" height="3rem" round={true} />
     </Button>
   ) : (
     <Button size="large" theme="quaternary" iconOnly>

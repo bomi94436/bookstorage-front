@@ -4,10 +4,10 @@ import { LoginRequest, SignupRequest } from './types';
 
 export const getUser = async () => {
   try {
-    const res = await API.get<{ response: IUserInfo }>('/users');
+    const res = await API.get<{ result: IUserInfo }>('/users/me');
 
-    localStorage.setItem('user', JSON.stringify(res.data.response));
-    return res.data.response;
+    localStorage.setItem('user', JSON.stringify(res.data.result));
+    return res.data.result;
   } catch (err) {
     console.error(err);
     throw err;

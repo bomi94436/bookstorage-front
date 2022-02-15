@@ -4,7 +4,7 @@ import { IBook } from 'types';
 import { useCallback, useState } from 'react';
 import { useQuery } from 'react-query';
 import BarcodeScanner from './BarcodeScanner';
-import { content, contentRight } from './BarcodeScanner.styles';
+import { content, contentRight, style } from './BarcodeScanner.styles';
 import React from 'react';
 
 const SearchBookByBarcode = () => {
@@ -28,7 +28,7 @@ const SearchBookByBarcode = () => {
   }, [selectedISBN, data]);
 
   return (
-    <React.Fragment>
+    <div css={[style]}>
       <Title>책 검색</Title>
       <Text size="large" color="gray">
         바코드나 QR코드를 통해 독후감을 작성할 책을 선택하세요.
@@ -57,7 +57,7 @@ const SearchBookByBarcode = () => {
           내 스토리지에 추가
         </Button>
       </ButtonGroup>
-    </React.Fragment>
+    </div>
   );
 };
 

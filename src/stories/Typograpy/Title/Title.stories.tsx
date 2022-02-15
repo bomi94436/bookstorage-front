@@ -24,14 +24,9 @@ export const title: Story<TitleProps> = ({ level, children }) => (
 
 title.storyName = 'Default';
 
-const titleWrapper = css`
-  display: flex;
-  flex-direction: column;
-`;
-
 export const levels = () => {
   return (
-    <div css={titleWrapper}>
+    <div>
       <Title>This is h1 Title</Title>
       <Title level="2">This is h2 Title</Title>
       <Title level="3">This is h3 Title</Title>
