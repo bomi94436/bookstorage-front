@@ -1,9 +1,9 @@
-import { css } from '@emotion/react';
-import { theme } from '@styles/theme';
+import { css } from '@emotion/react'
+import { theme } from '@styles/theme'
 
 export const activeCard = css`
   border: 1px solid ${theme.color.main};
-`;
+`
 
 export const style = css`
   display: flex;
@@ -19,11 +19,7 @@ export const style = css`
   :not(.active):hover {
     border: 1px solid ${theme.color.mainHover};
   }
-
-  :hover {
-    cursor: pointer;
-  }
-`;
+`
 
 export const content = css`
   display: flex;
@@ -34,4 +30,4 @@ export const content = css`
   padding: 24px;
   border-top: 1px solid ${theme.border.color};
   background-color: ${theme.color.white};
-`;
+`

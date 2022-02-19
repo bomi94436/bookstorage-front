@@ -2,8 +2,8 @@ import { Navigate } from 'react-router-dom';
 import React from 'react';
 import QueryString from 'qs';
 import { useQuery } from 'react-query';
-import { IUserInfo } from '../../types/index';
 import { getUser } from '@apis/user';
+import { IUserInfo } from '@apis/user/types';
 
 const OAuth2RedirectHandler = () => {
   const { token, error } = QueryString.parse(window.location.search, { ignoreQueryPrefix: true });

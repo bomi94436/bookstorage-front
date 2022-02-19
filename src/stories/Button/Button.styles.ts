@@ -41,12 +41,13 @@ export const themes = {
   primary: css`
     background: ${theme.color.main};
     color: ${theme.color.white};
+    border: 1px solid ${theme.color.main};
   `,
 
   secondary: css`
     background: ${theme.color.white};
     color: ${theme.color.main};
-    border: 2px solid ${theme.color.main};
+    border: 1px solid ${theme.color.main};
     &:hover:enabled {
       filter: brightness(130%);
     }
@@ -58,6 +59,7 @@ export const themes = {
   tertiary: css`
     background: ${theme.color.white};
     color: ${theme.color.black};
+    border: 1px solid ${theme.color.white};
     &:hover:enabled {
       filter: brightness(100%);
       color: ${theme.color.lightBlack};
@@ -70,6 +72,7 @@ export const themes = {
   quaternary: css`
     background: ${theme.color.white};
     color: ${theme.color.gray};
+    border: 1px solid ${theme.color.white};
     &:hover:enabled {
       filter: brightness(100%);
       background-color: ${theme.color.lightGray};

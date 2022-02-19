@@ -15,7 +15,8 @@
       "@types": ["./types/index"],
       "@types/*": ["./types/*"],
       "@hooks": ["./hooks/index"],
-      "@hooks/*": ["./hooks/*"]
+      "@hooks/*": ["./hooks/*"],
+      "@usecase/*": ["./usecase/*"]
     }
   }
 }

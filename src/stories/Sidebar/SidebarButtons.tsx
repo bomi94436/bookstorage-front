@@ -1,8 +1,8 @@
 import { Button, Image } from '@stories';
-import { IUserInfo } from 'types';
 import { AiFillHome } from 'react-icons/ai';
 import { RiBookFill } from 'react-icons/ri';
 import { FaUserCircle } from 'react-icons/fa';
+import { IUserInfo } from '@apis/user/types';
 
 export const HomeButton = ({ open }: { open: boolean }) =>
   open ? (

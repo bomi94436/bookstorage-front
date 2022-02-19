@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home, Layout, Login, OAuth2RedirectHandler, Signup } from '@components';
 import MyStorage from '@components/Storage/MyStorage';
-import SearchBookByBarcode from '@components/Storage/SearchBook/SearchBookByBarcode';
+import SearchBookByBarcode from '@components/Storage/SearchBook/ByBarcode';
 
 function App() {
   return (

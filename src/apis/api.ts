@@ -1,12 +1,12 @@
-import { BACKEND_URL } from '@config';
-import axios, { AxiosInstance } from 'axios';
-import { setConfig } from './interceptor';
+import { BACKEND_URL } from '@config'
+import axios, { AxiosInstance } from 'axios'
+import { setConfig } from './interceptor'
 
 const API: AxiosInstance = axios.create({
   baseURL: `${BACKEND_URL}`,
   withCredentials: true,
-});
+})
 
-API.interceptors.request.use(setConfig);
+API.interceptors.request.use(setConfig)
 
-export default API;
+export default API

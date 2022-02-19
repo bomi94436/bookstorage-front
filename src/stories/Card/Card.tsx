@@ -1,17 +1,17 @@
-import React from 'react';
-import { activeCard, content, style } from './Card.styles';
-import { Image } from '@stories';
+import React from 'react'
+import { activeCard, content, style } from './Card.styles'
+import { Image } from '@stories'
 
 export type CardProps = {
-  imgSrc: string;
-  children?: React.ReactNode;
-  active: boolean;
-  onClick?: (e?: React.MouseEvent<HTMLElement>) => void;
-};
+  imgSrc: string
+  children?: React.ReactNode
+  active: boolean
+  onClick?: (e?: React.MouseEvent<HTMLElement>) => void
+}
 
 const Card = ({ imgSrc, children, active, onClick }: CardProps) => {
   return (
-    <button
+    <div
       css={[style, active && activeCard]}
       className={`${active ? 'active' : ''}`}
       onClick={onClick}
@@ -19,12 +19,12 @@ const Card = ({ imgSrc, children, active, onClick }: CardProps) => {
       <Image src={imgSrc} />
 
       <div css={[content]}>{children}</div>
-    </button>
-  );
-};
+    </div>
+  )
+}
 
 Card.defaultProps = {
   active: false,
-};
+}
 
-export default Card;
+export default Card

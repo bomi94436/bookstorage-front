@@ -18,3 +18,7 @@ export const content = css`
 export const contentRight = css`
   width: 30%;
 `;
+
+export const statusButtonWrapper = css`
+  display: flex;
+`;

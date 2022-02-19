@@ -1,3 +1,9 @@
+export interface IUserInfo {
+  email: string;
+  nickname: string;
+  profileImageUrl: string;
+}
+
 export type SignupRequest = {
   userId: string;
   email: string;
