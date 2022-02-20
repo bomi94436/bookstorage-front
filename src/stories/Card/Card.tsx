@@ -16,7 +16,7 @@ const Card = ({ imgSrc, children, active, onClick }: CardProps) => {
       className={`${active ? 'active' : ''}`}
       onClick={onClick}
     >
-      <Image src={imgSrc} />
+      <Image src={imgSrc} height="12rem" />
 
       <div css={[content]}>{children}</div>
     </div>

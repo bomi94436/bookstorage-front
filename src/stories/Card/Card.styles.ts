@@ -10,7 +10,8 @@ export const style = css`
   flex-direction: column;
   align-items: center;
 
-  width: 280px;
+  min-width: 100px;
+  max-width: 280px;
 
   overflow: hidden;
   border: 1px solid ${theme.border.color};

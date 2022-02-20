@@ -1,5 +1,5 @@
-import { css } from '@emotion/react';
-import { theme } from '@styles/theme';
+import { css } from '@emotion/react'
+import { theme } from '@styles/theme'
 
 export const style = css`
   display: flex;
@@ -21,9 +21,7 @@ export const style = css`
     width: 1em;
   }
   /* *:first-of-type:nth-last-of-type(2), */
-  & > :not(span) {
-    margin-right: 1em;
-  }
+
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
@@ -35,7 +33,7 @@ export const style = css`
   &:active:enabled {
     filter: brightness(95%);
   }
-`;
+`
 
 export const themes = {
   primary: css`
@@ -81,25 +79,34 @@ export const themes = {
       filter: brightness(95%);
     }
   `,
-};
+}
 
 export const sizes = {
   small: css`
     height: 1.75rem; // 28px
     font-size: 12px;
     padding: 0 0.875rem;
+    & > :not(span) {
+      margin-right: 0.5em;
+    }
   `,
   medium: css`
     height: 2.5rem; // 40px
     font-size: 14px;
     padding: 0 1rem;
+    & > :not(span) {
+      margin-right: 1em;
+    }
   `,
   large: css`
     height: 3rem; // 48px
     font-size: 18px;
     padding: 0 1.5rem;
+    & > :not(span) {
+      margin-right: 1.2em;
+    }
   `,
-};
+}
 
 export const iconOnlyStyle = css`
   padding: 0;
@@ -109,7 +116,7 @@ export const iconOnlyStyle = css`
   img {
     margin: 0;
   }
-`;
+`
 
 export const iconOnlySizes = {
   small: css`
@@ -121,4 +128,4 @@ export const iconOnlySizes = {
   large: css`
     width: 3rem;
   `,
-};
+}

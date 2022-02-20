@@ -1,9 +1,9 @@
-import { css } from '@emotion/react';
+import { css } from '@emotion/react'
 
 export const style = css`
   display: flex;
   flex-direction: column;
-`;
+`
 
 export const content = css`
   display: flex;
@@ -13,12 +13,8 @@ export const content = css`
   & > *:not(:last-child) {
     margin-right: 18px;
   }
-`;
+`
 
 export const contentRight = css`
   width: 30%;
-`;
-
-export const statusButtonWrapper = css`
-  display: flex;
-`;
+`

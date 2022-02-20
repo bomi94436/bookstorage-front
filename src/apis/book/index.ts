@@ -1,8 +1,8 @@
 import API from '@apis/api'
 import apiurl from '../urls'
-import { Book, ReadType, StorageBook } from './types'
+import { Book, BookForQueryResponse } from './types'
 
-export const getBookForISBN = async ({ isbn }: { isbn: string }): Promise<Book> => {
+export const getBookForISBN = async ({ isbn }: { isbn: string }) => {
   try {
     const response = await API.get<{ result: Book }>(`${apiurl.books}/${isbn}`)
 
@@ -12,11 +12,13 @@ export const getBookForISBN = async ({ isbn }: { isbn: string }): Promise<Book> 
   }
 }
 
-export const postStorage = async ({ isbn, readType }: { isbn: string; readType: ReadType }) => {
+export const getBookForQuery = async ({ query, start }: { query: string; start?: number }) => {
   try {
-    const response = await API.post<{ result: StorageBook }>(`${apiurl.usersBooks}`, {
-      isbn,
-      readType,
+    const response = await API.get<{ result: BookForQueryResponse }>(`${apiurl.books}`, {
+      params: {
+        query,
+        start,
+      },
     })
 
     return response.data.result

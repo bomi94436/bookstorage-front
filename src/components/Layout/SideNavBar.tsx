@@ -1,16 +1,15 @@
-import { getUser } from '@apis/user'
 import { ButtonGroup, Sidebar } from '@stories'
 import { Dispatch, SetStateAction } from 'react'
-import { useQuery } from 'react-query'
 import { NavLink } from 'react-router-dom'
 import useWindowDimensions from '@hooks/useWindowDimensions'
 import {
-  AddBookInBookStorageButton,
+  AddBookButton,
   HomeButton,
   UserButton,
   LoginButton,
+  StorageButton,
 } from '@stories/Sidebar/SidebarButtons'
-import { IUserInfo } from '@apis/user/types'
+import { useUser } from '@apis/user/hooks'
 
 interface SideNavBarProps {
   open: boolean
@@ -19,10 +18,7 @@ interface SideNavBarProps {
 
 const SideNavbar = ({ open, setOpen }: SideNavBarProps) => {
   const { width } = useWindowDimensions()
-
-  const { data } = useQuery<IUserInfo, Error>(['user'], getUser, {
-    retry: false,
-  })
+  const { user } = useUser()
 
   return (
     <Sidebar open={open} setOpen={setOpen} width={width}>
@@ -32,12 +28,22 @@ const SideNavbar = ({ open, setOpen }: SideNavBarProps) => {
         </NavLink>
 
         <NavLink to="/storage/search/by-barcode">
-          <AddBookInBookStorageButton open={open} />
+          <AddBookButton open={open} label="바코드로 책 검색" />
         </NavLink>
+
+        <NavLink to="/storage/search/by-query">
+          <AddBookButton open={open} label="이름으로 책 검색" />
+        </NavLink>
+
+        {user && (
+          <NavLink end to="/storage">
+            <StorageButton open={open} />
+          </NavLink>
+        )}
       </ButtonGroup>
 
-      {data ? (
-        <UserButton open={open} data={data} />
+      {user ? (
+        <UserButton open={open} data={user} />
       ) : (
         <NavLink to="/login">
           <LoginButton open={open} />

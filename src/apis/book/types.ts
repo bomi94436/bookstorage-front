@@ -14,10 +14,10 @@ export interface Book extends IBook {
   pubdate: string
 }
 
-export interface StorageBook extends IBook {
-  id: number
-  createdDate: string // timestamp
-  modifiedDate: string // timestamp
+export type BookForQueryResponse = {
+  lastBuildDate: string // timestamp
+  total: number
+  start: number
+  display: number
+  items: Book[]
 }
-
-export type ReadType = 'READ' | 'READING' | 'NOT_READ'

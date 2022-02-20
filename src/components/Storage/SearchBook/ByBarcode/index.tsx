@@ -1,22 +1,27 @@
 import React, { useCallback, useState } from 'react'
-import { getBookForISBN, postStorage } from '@apis/book'
+import { getBookForISBN } from '@apis/book'
 import { Card, Divider, Title, Text, ButtonGroup, Button } from '@stories'
 import { useMutation, useQuery } from 'react-query'
 import BarcodeScanner from './BarcodeScanner'
-import { content, contentRight, style } from './BarcodeScanner.styles'
-import { Book, ReadType } from '@apis/book/types'
+import { content, contentRight, style } from './ByBarcode.styles'
+import { Book } from '@apis/book/types'
 import { AxiosError } from 'axios'
+import { BsArrowUpRight } from 'react-icons/bs'
+import { useUser } from '@apis/user/hooks'
+import { useNavigate } from 'react-router-dom'
+import { postStorage } from '@apis/bookStorage'
+import { ReadType } from '@apis/bookStorage/type'
 
 const SearchBookByBarcode = () => {
+  const navigate = useNavigate()
   const [isbn, setISBN] = useState<string>('9788966262601') // ex - 9788966262601
   const [selectedISBN, setSelectedISBN] = useState<string | null>(null)
   const [selectedReadType, setSelectedReadType] = useState<ReadType | null>(null)
+  const { user } = useUser()
 
   const { data: book } = useQuery<Book | undefined, AxiosError>(
     ['book', isbn],
-    () => {
-      return getBookForISBN({ isbn })
-    },
+    () => getBookForISBN({ isbn }),
     {
       enabled: !!isbn,
       onSuccess: () => {
@@ -36,6 +41,16 @@ const SearchBookByBarcode = () => {
     },
   })
 
+  const onClickAddBook = () => {
+    if (!user) {
+      alert('로그인이 필요한 서비스입니다.')
+      navigate('/login')
+      return
+    }
+
+    callAddBook({ isbn: selectedISBN!, readType: selectedReadType! })
+  }
+
   const onClickReadingStatus = useCallback(
     (status: ReadType) => {
       if (selectedReadType === status) {
@@ -53,7 +68,7 @@ const SearchBookByBarcode = () => {
     <div css={[style]}>
       <Title>책 검색</Title>
       <Text size="large" color="gray">
-        바코드나 QR코드를 통해 독후감을 작성할 책을 선택하세요.
+        바코드나 QR코드를 통해 독후감을 작성할 책을 검색하세요.
       </Text>
 
       <div css={[content]}>
@@ -97,11 +112,9 @@ const SearchBookByBarcode = () => {
         </div>
       </div>
 
-      <ButtonGroup css={{ marginTop: '48px' }} rowAlign="flex-end">
-        <Button
-          onClick={() => callAddBook({ isbn: selectedISBN!, readType: selectedReadType! })}
-          disabled={!selectedISBN}
-        >
+      <ButtonGroup css={{ marginTop: '2rem' }} rowAlign="flex-end">
+        <Button onClick={() => onClickAddBook()} disabled={!selectedISBN}>
+          <BsArrowUpRight />
           Straoge에 추가
         </Button>
       </ButtonGroup>

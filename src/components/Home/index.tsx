@@ -1,4 +1,4 @@
-import { Divider, Image, Text } from '@stories';
+import { Button, Divider, Image, Tag, Text } from '@stories'
 import {
   card,
   cardHeaderNickname,
@@ -8,19 +8,31 @@ import {
   leftSide,
   style,
   tag,
-} from './Home.styles';
-import logo from '@stories/assets/book-storage-logo.png';
-import { FaRegCommentAlt } from 'react-icons/fa';
-import { theme } from '@styles/theme';
+} from './Home.styles'
+import logo from '@stories/assets/book-storage-logo.png'
+import { FaRegCommentAlt } from 'react-icons/fa'
+import { theme } from '@styles/theme'
+import { useUser } from '@apis/user/hooks'
+import { BsArrowUpRight } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
+  const { user } = useUser()
+
   return (
     <div css={style}>
       <div css={leftSide}>
+        {!user && (
+          <Button onClick={() => navigate('/login')}>
+            <BsArrowUpRight />
+            로그인하고 글쓰기
+          </Button>
+        )}
         <article css={card}>
           <header>
             <div css={tag}>
-              <button>#피드</button>
+              <Tag>#피드</Tag>
             </div>
 
             <div css={cardHeaderUserInfo}>
@@ -54,7 +66,7 @@ const Home = () => {
         </article>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

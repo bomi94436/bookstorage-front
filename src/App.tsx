@@ -1,7 +1,14 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Home, Layout, Login, OAuth2RedirectHandler, Signup } from '@components';
-import MyStorage from '@components/Storage/MyStorage';
-import SearchBookByBarcode from '@components/Storage/SearchBook/ByBarcode';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import {
+  Home,
+  Layout,
+  Login,
+  MyStorage,
+  OAuth2RedirectHandler,
+  SearchBookByBarcode,
+  SearchBookByQuery,
+  Signup,
+} from '@components'
 
 function App() {
   return (
@@ -14,6 +21,7 @@ function App() {
             <Route index element={<MyStorage />} />
             <Route path="search">
               <Route path="by-barcode" element={<SearchBookByBarcode />} />
+              <Route path="by-query" element={<SearchBookByQuery />} />
             </Route>
           </Route>
 
@@ -33,7 +41,7 @@ function App() {
         </Routes>
       </Layout>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
