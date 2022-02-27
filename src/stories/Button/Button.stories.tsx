@@ -1,11 +1,11 @@
-import { css } from '@emotion/react';
-import { Story } from '@storybook/react';
-import Button, { ButtonProps } from './Button';
-import { action } from '@storybook/addon-actions';
-import ButtonGroup from '@stories/ButtonGroup/ButtonGroup';
-import { RiBookFill } from 'react-icons/ri';
-import { AiFillHome } from 'react-icons/ai';
-import { FaUserCircle } from 'react-icons/fa';
+import { css } from '@emotion/react'
+import { Story } from '@storybook/react'
+import Button, { ButtonProps } from './Button'
+import { action } from '@storybook/addon-actions'
+import ButtonGroup from '@stories/ButtonGroup/ButtonGroup'
+import { RiBookFill } from 'react-icons/ri'
+import { AiFillHome } from 'react-icons/ai'
+import { FaUserCircle } from 'react-icons/fa'
 
 export default {
   title: 'components/Button',
@@ -34,7 +34,7 @@ export default {
       control: { type: 'text' },
     },
   },
-};
+}
 
 export const button: Story<ButtonProps> = ({ label, size, theme, disabled, width }) => (
   <Button
@@ -45,9 +45,9 @@ export const button: Story<ButtonProps> = ({ label, size, theme, disabled, width
     width={width}
     onClick={action('onClick')}
   />
-);
+)
 
-button.storyName = 'Default';
+button.storyName = 'Default'
 
 const buttonWrapper = css`
   .description {
@@ -56,17 +56,21 @@ const buttonWrapper = css`
   & > div + div {
     margin-top: 2rem;
   }
-`;
+`
 
-export const primaryButton = () => <Button label="PRIMARY" />;
+export const primaryButton = () => <Button label="PRIMARY" />
 
 export const secondaryButton = () => {
-  return <Button theme="secondary" label="SECONDARY" />;
-};
+  return <Button theme="secondary" label="SECONDARY" />
+}
 
 export const tertiaryButton = () => {
-  return <Button theme="tertiary" label="TERTIARY" />;
-};
+  return <Button theme="tertiary" label="TERTIARY" />
+}
+
+export const quaternaryButton = () => {
+  return <Button theme="quaternary" label="TERTIARY" />
+}
 
 export const sizes = () => {
   return (
@@ -84,8 +88,8 @@ export const sizes = () => {
         <Button size="large" label="BUTTON" />
       </div>
     </div>
-  );
-};
+  )
+}
 
 export const disabled = () => {
   return (
@@ -98,6 +102,9 @@ export const disabled = () => {
       </div>
       <div>
         <Button disabled theme="tertiary" label="TERTIARY" />
+      </div>
+      <div>
+        <Button disabled theme="quaternary" label="TERTIARY" />
       </div>
       <div>
         <Button disabled label="LIKE">
@@ -114,9 +121,14 @@ export const disabled = () => {
           <FaUserCircle />
         </Button>
       </div>
+      <div>
+        <Button disabled theme="quaternary" label="LIKE">
+          <FaUserCircle />
+        </Button>
+      </div>
     </div>
-  );
-};
+  )
+}
 
 export const customSized = () => {
   return (
@@ -128,8 +140,8 @@ export const customSized = () => {
         <Button width="100%" label="FULL WIDTH" />
       </div>
     </div>
-  );
-};
+  )
+}
 
 export const withIcon = () => (
   <div>
@@ -143,9 +155,12 @@ export const withIcon = () => (
       <Button theme="tertiary" size="large" label="LIKE">
         <FaUserCircle />
       </Button>
+      <Button theme="quaternary" size="small" label="LIKE">
+        <FaUserCircle />
+      </Button>
     </ButtonGroup>
   </div>
-);
+)
 
 export const iconOnly = () => (
   <div>
@@ -161,4 +176,4 @@ export const iconOnly = () => (
       </Button>
     </ButtonGroup>
   </div>
-);
+)

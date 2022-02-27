@@ -18,3 +18,12 @@ export const iconOnlySizes = {
     height: 18px;
   `,
 }
+
+export const backgroudImage = (url: string) => css`
+  width: 240px;
+  height: 240px;
+  background-image: url(${url});
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+`

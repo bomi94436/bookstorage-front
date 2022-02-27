@@ -74,6 +74,7 @@ export const themes = {
     &:hover:enabled {
       filter: brightness(100%);
       background-color: ${theme.color.lightGray};
+      border: 1px solid ${theme.color.lightGray};
     }
     &:active:enabled {
       filter: brightness(95%);

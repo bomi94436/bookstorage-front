@@ -7,3 +7,5 @@ export interface StorageBook extends IBook {
 }
 
 export type ReadType = 'READ' | 'READING' | 'NOT_READ'
+
+export type BookPostType = 'FEED' | 'REVIEW' | 'SUMMARY'

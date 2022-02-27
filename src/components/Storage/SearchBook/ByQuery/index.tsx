@@ -84,7 +84,7 @@ const SearchBookByQuery = () => {
           {result.items.map((book) => (
             <div key={`search-by-query-book-${book.isbn}`} css={contentItem}>
               <Card imgSrc={book.image}>
-                <Title level="3">{book.title}</Title>
+                <Title level="3">{book.title.split('<b>').join('').split('</b>').join('')}</Title>
                 <ButtonGroup rowAlign="space-between">
                   <Button
                     size="small"

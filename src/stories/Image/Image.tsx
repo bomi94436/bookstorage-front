@@ -1,5 +1,5 @@
 import React from 'react'
-import { iconOnlySizes, style } from './Image.styles'
+import { iconOnlySizes, style, backgroudImage } from './Image.styles'
 
 export type ImageProps = {
   src: string
@@ -11,11 +11,21 @@ export type ImageProps = {
 
 const Image = ({ src, width, height, round, iconOnlySize }: ImageProps) => {
   return (
-    <img
-      src={src}
-      alt=""
+    // <img
+    //   src={src}
+    //   alt=""
+    //   css={[
+    //     style,
+    //     width && { width },
+    //     height && { height },
+    //     round && { borderRadius: '60%' },
+    //     iconOnlySize && iconOnlySizes[iconOnlySize],
+    //   ]}
+    // />
+    <div
       css={[
         style,
+        backgroudImage(src),
         width && { width },
         height && { height },
         round && { borderRadius: '60%' },

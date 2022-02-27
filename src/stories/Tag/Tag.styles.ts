@@ -9,5 +9,4 @@ export const style = css`
   padding: 0.25rem 0.6rem;
   font-weight: 700;
   font-size: 0.75rem;
-  cursor: pointer;
 `

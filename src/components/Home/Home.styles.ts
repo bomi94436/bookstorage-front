@@ -25,6 +25,7 @@ export const card = css`
   header {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     padding: 1.2rem;
   }
 

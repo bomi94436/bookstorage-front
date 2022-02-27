@@ -1,21 +1,21 @@
-import React, { Fragment } from 'react';
-import { darkLayer, fullscreen, sizes, whiteBox, whiteBoxWrapper } from './Modal.styles';
-import { Title, Text, Button, ButtonGroup } from '@stories';
+import React, { Fragment } from 'react'
+import { darkLayer, fullscreen, sizes, whiteBox, whiteBoxWrapper } from './Modal.styles'
+import { Title, Text, Button, ButtonGroup } from '@stories'
 
 export type ModalProps = {
-  visible: boolean;
-  size: 'normal' | 'fullscreen';
-  title?: string;
-  description?: string;
-  children?: React.ReactNode;
-  hideButtons?: boolean;
-  cancellable?: boolean;
-  disableConfirm?: boolean;
-  cancelText: string;
-  confirmText: string;
-  onCancel?: () => void;
-  onConfirm?: () => void;
-};
+  visible: boolean
+  size: 'normal' | 'fullscreen'
+  title?: string
+  description?: string
+  children?: React.ReactNode
+  hideButtons?: boolean
+  cancellable?: boolean
+  disableConfirm?: boolean
+  cancelText: string
+  confirmText: string
+  onCancel?: () => void
+  onConfirm?: () => void
+}
 
 const Modal = ({
   visible,
@@ -31,7 +31,7 @@ const Modal = ({
   onCancel,
   onConfirm,
 }: ModalProps) => {
-  if (!visible) return null;
+  if (!visible) return null
 
   return (
     <Fragment>
@@ -39,7 +39,7 @@ const Modal = ({
       <div css={[fullscreen, whiteBoxWrapper]}>
         <div css={[whiteBox, sizes[size]]}>
           <div>
-            {title && <Title level="2">{title}</Title>}
+            {title && <Title level={size === 'fullscreen' ? '1' : '2'}>{title}</Title>}
             {description && (
               <Text size="large" color="gray">
                 {description}
@@ -68,13 +68,13 @@ const Modal = ({
         </div>
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
 Modal.defaultProps = {
   size: 'normal',
   cancelText: '취소',
   confirmText: '확인',
-};
+}
 
-export default Modal;
+export default Modal

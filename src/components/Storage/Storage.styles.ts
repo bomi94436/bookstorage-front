@@ -21,4 +21,14 @@ export const contentItem = css`
   > :first-of-type {
     margin-right: 1rem;
   }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+`
+
+export const writeButtonWrapper = css`
+  position: relative;
 `

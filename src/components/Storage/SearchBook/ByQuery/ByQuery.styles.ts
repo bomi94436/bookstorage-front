@@ -17,7 +17,7 @@ export const searchForm = css`
 export const content = css`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   row-gap: 2rem;
   column-gap: 0rem;
 

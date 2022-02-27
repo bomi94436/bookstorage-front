@@ -2,8 +2,8 @@ const apiurl = {
   auth: '/auth',
   users: '/users',
   usersMe: '/users/me',
-  usersBooks: '/users/books',
+  bookstorage: '/bookstorage',
   books: '/books',
-};
+}
 
-export default apiurl;
+export default apiurl

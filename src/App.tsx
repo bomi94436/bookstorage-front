@@ -3,7 +3,7 @@ import {
   Home,
   Layout,
   Login,
-  MyStorage,
+  Storage,
   OAuth2RedirectHandler,
   SearchBookByBarcode,
   SearchBookByQuery,
@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/storage">
-            <Route index element={<MyStorage />} />
+            <Route index element={<Storage />} />
             <Route path="search">
               <Route path="by-barcode" element={<SearchBookByBarcode />} />
               <Route path="by-query" element={<SearchBookByQuery />} />

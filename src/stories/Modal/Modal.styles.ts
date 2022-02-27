@@ -1,5 +1,5 @@
-import { css } from '@emotion/react';
-import { theme } from '@styles/theme';
+import { css } from '@emotion/react'
+import { theme } from '@styles/theme'
 
 export const fullscreen = css`
   position: fixed;
@@ -7,19 +7,19 @@ export const fullscreen = css`
   left: 0;
   width: 100%;
   height: 100%;
-`;
+`
 
 export const darkLayer = css`
   z-index: 10;
   background: rgba(0, 0, 0, 0.5);
-`;
+`
 
 export const whiteBoxWrapper = css`
   z-index: 15;
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`
 
 export const whiteBox = css`
   display: flex;
@@ -36,7 +36,7 @@ export const whiteBox = css`
   .modal-contents {
     overflow-y: scroll;
   }
-`;
+`
 
 export const sizes = {
   normal: css`
@@ -46,4 +46,4 @@ export const sizes = {
     width: 85vw;
     height: 85vh;
   `,
-};
+}

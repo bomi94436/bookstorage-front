@@ -1,5 +1,5 @@
-import { css } from '@emotion/react';
-import { theme } from '@styles/theme';
+import { css } from '@emotion/react'
+import { theme } from '@styles/theme'
 
 export const sizes = {
   small: css`
@@ -10,8 +10,9 @@ export const sizes = {
   `,
   large: css`
     font-size: 1.2rem;
+    margin-bottom: 0.5rem;
   `,
-};
+}
 
 export const colors = {
   main: css`
@@ -29,8 +30,8 @@ export const colors = {
   red: css`
     color: ${theme.color.red};
   `,
-};
+}
 
 export const bolded = css`
   font-weight: bold;
-`;
+`
