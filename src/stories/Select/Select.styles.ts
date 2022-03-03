@@ -11,12 +11,16 @@ export const list = css`
 
   border: 1px solid ${theme.border.color};
   border-radius: ${theme.border.radius};
+
+  display: flex;
+  flex-direction: column;
 `
 
 export const item = css`
   background-color: ${theme.color.white};
   border: none;
   padding: 8px 10px;
+  flex-grow: 1;
 
   :hover {
     background-color: ${theme.color.lightGray};
